@@ -2,3 +2,17 @@
 .modal{
     background-color: #6c719a;
 }
+
+.modal-header{
+    border-bottom: 0px;
+    text-align: center;
+}
+
+.modal-footer{
+    border-top: 0px;
+    text-align: center;
+}
+
+.btn.btn-primary{
+    background-color: #6c719a;
+}
