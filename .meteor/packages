@@ -13,7 +13,7 @@ accounts-password
 alanning:roles
 twbs:bootstrap
 fortawesome:fontawesome
-accounts-ui
 yogiben:admin
 mondora:asteroid
 momentjs:moment
+ian:accounts-ui-bootstrap-3
