@@ -2,7 +2,7 @@
 
 This is the repository of of the iwwa project backend. The source code for the
 the frontend can be found at
-[innowatio/iwwz-front](https://github.com/innowatio/iwwa-front).
+[innowatio/iwwa-front](https://github.com/innowatio/iwwa-front).
 
 
 ## Development environment setup
