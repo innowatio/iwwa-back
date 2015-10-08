@@ -5,7 +5,11 @@ Meteor.publish("users", function () {
     }
     return Meteor.users.find({}, {
         fields: {
-            siti: 1
+            profile: 1,
+            emails: 1,
+            siti: 1,
+            roles: 1,
+            createdAt: 1
         }
     });
 });
