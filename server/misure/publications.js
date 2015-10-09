@@ -13,4 +13,5 @@ Meteor.publish("misureBySito", function (sitoId) {
             data: -1
         }
     });
+    return sito && Misure.find({pod: sito.pod});
 });
