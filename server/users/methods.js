@@ -18,5 +18,13 @@ Meteor.methods({
             throw new Meteor.Error("Login required");
         }
         Accounts.setPassword(targetUserId, newPassword);
+    },
+    saveRegistrationId: function (appRegistrationId) {
+        check(appRegistrationId, String);
+        var userId = Meteor.userId();
+        if (!userId) {
+            throw new Meteor.Error("Login required");
+        }
+        Meteor.users.update({_id: userId}, {$set: {appRegistrationId}});
     }
 });
