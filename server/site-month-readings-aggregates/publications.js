@@ -6,7 +6,7 @@ Meteor.publish("misureBySitoAndMonth", function (sitoId, dateMonth) {
     if (!sito) {
         return null;
     }
-    var query = MonthReadings.find({
+    var query = SiteMonthReadingsAggregates.find({
         podId: sito.pod,
         month: dateMonth
     });
