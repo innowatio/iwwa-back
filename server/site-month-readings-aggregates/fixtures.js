@@ -2,7 +2,7 @@ function randomValue () {
     const value = [];
     const lengthOfTheArray = 30*24*12;
     for (var i=0; i <= lengthOfTheArray ; i++) {
-        value.push((Math.random() * 10).tofixed(1))
+        value.push((Math.random() * 10).toFixed(1))
     }
     return value.join(",");
 }
