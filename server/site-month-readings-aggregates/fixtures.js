@@ -15,10 +15,10 @@ Meteor.startup(() => {
         SiteMonthReadingsAggregates.insert({
             podId: "podId",
             month: moment().format("YYYY-MM"),
-            readings: {
-                "energia attiva": randomValue(),
-                "enregia reattiva": randomValue(),
-                "potenza massima": randomValue(),
+            measurements: {
+                "activeEnergy": randomValue(),
+                "reactiveEnergy": randomValue(),
+                "maxPower": randomValue(),
                 "temperature": randomValue(),
                 "humidity": randomValue(),
                 "illuminance": randomValue(),
