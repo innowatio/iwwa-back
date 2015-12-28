@@ -1,0 +1,90 @@
+{
+  "_id": "testSites2",
+  "name": "Sito di test 2",
+  "sensors": [
+    {
+      "id": "IT003",
+      "type": "pod",
+      "description": "Luci e utenze varie",
+      "children": [
+        {
+          "id": "ANZ05",
+          "type": "pod-anz",
+          "description": "Luci e utenze varie"
+        }
+      ]
+    },
+    {
+      "id": "IT004",
+      "type": "pod",
+      "description": "Climatizzazione Vendita e Magazzino",
+      "children": [
+        {
+          "id": "ANZ06",
+          "type": "pod-anz",
+          "description": "Climatizzazione Vendita e Magazzino"
+        }
+      ]
+    },
+    {
+      "id": "ZTHL08",
+      "type": "thl",
+      "description": "Sensore ambientale 1 area destra",
+      "children": [
+
+      ]
+    },
+    {
+      "id": "ZTHL09",
+      "type": "thl",
+      "description": "Sensore ambientale 2 area destra",
+      "children": [
+
+      ]
+    },
+    {
+      "id": "ZTHL10",
+      "type": "thl",
+      "description": "Sensore ambientale 3 area sinistra",
+      "children": [
+
+      ]
+    },
+    {
+      "id": "ZTHL11",
+      "type": "thl",
+      "description": "Sensore ambientale 4 area sinistra",
+      "children": [
+
+      ]
+    },
+    {
+      "id": "COOV04",
+      "type": "co2",
+      "description": "Sonda co2 su HVAC01",
+      "children": [
+
+      ]
+    },
+    {
+      "id": "COOV05",
+      "type": "co2",
+      "description": "Sonda co2 su HVAC02",
+      "children": [
+
+      ]
+    }
+  ],
+  "sensorsIds": [
+    "IT003",
+    "ANZ05",
+    "IT004",
+    "ANZ06",
+    "ZTHL08",
+    "ZTHL09",
+    "ZTHL10",
+    "ZTHL11",
+    "COOV04",
+    "COOV05"
+  ]
+}
