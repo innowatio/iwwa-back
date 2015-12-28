@@ -1,6 +1,6 @@
 {
-  "_id": "testSites2",
-  "name": "Sito di test 2",
+  "_id": "SitodiTest2",
+  "name": "Sito di Test 2",
   "sensors": [
     {
       "id": "IT003",
