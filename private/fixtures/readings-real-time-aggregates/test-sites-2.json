@@ -1,0 +1,112 @@
+{
+  "_id": "SitodiTest2",
+  "siteId": "SitodiTest2",
+  "sensors": {
+    "ANZ03": {
+      "measurements": {
+        "activeEnergy": 40.882999999999999119,
+        "reactiveEnergy": 17.184999999999998721,
+        "maxPower": 180
+      },
+      "lastUpdated": "2015-12-28T13:17:45.366Z"
+    },
+    "ANZ04": {
+      "measurements": {
+        "activeEnergy": 27.652000000000001023,
+        "reactiveEnergy": 7.1210000000000004405,
+        "maxPower": 0
+      },
+      "lastUpdated": "2015-12-28T13:17:45.384Z"
+    },
+    "ANZ05": {
+      "measurements": {
+        "activeEnergy": 24.882999999999999119,
+        "reactiveEnergy": 13.184999999999998721,
+        "maxPower": 150
+      },
+      "lastUpdated": "2015-12-28T13:17:45.366Z"
+    },
+    "ANZ06": {
+      "measurements": {
+        "activeEnergy": 42.652000000000001023,
+        "reactiveEnergy": 5.1210000000000004405,
+        "maxPower": 110
+      },
+      "lastUpdated": "2015-12-28T13:17:45.384Z"
+    },
+    "ZTHL05": {
+      "measurements": {
+        "temperature": 15.5,
+        "humidity": 57,
+        "illuminance": 138
+      },
+      "lastUpdated": "2015-12-28T13:17:45.396Z"
+    },
+    "ZTHL06": {
+      "measurements": {
+        "temperature": 16.5,
+        "humidity": 24,
+        "illuminance": 141
+      },
+      "lastUpdated": "2015-12-28T13:17:45.415Z"
+    },
+    "ZTHL07": {
+      "measurements": {
+        "temperature": 31,
+        "humidity": 39,
+        "illuminance": 70
+      },
+      "lastUpdated": "2015-12-28T13:17:45.458Z"
+    },
+    "ZTHL08": {
+      "measurements": {
+        "temperature": 27.100000000000001421,
+        "humidity": 52,
+        "illuminance": 123
+      },
+      "lastUpdated": "2015-12-28T13:17:45.535Z"
+    },
+    "ZTHL09": {
+      "measurements": {
+        "temperature": 25.5,
+        "humidity": 45,
+        "illuminance": 291
+      },
+      "lastUpdated": "2015-12-28T13:17:45.415Z"
+    },
+    "ZTHL10": {
+      "measurements": {
+        "temperature": 31,
+        "humidity": 54,
+        "illuminance": 96
+      },
+      "lastUpdated": "2015-12-28T13:17:45.458Z"
+    },
+    "ZTHL11": {
+      "measurements": {
+        "temperature": 29.100000000000001421,
+        "humidity": 62,
+        "illuminance": 263
+      },
+      "lastUpdated": "2015-12-28T13:17:45.535Z"
+    },
+    "COOV03": {
+      "measurements": {
+        "co2": 680
+      },
+      "lastUpdated": "2015-12-28T13:17:45.475Z"
+    },
+    "COOV04": {
+      "measurements": {
+        "co2": 657
+      },
+      "lastUpdated": "2015-12-28T13:17:45.490Z"
+    },
+    "COOV05": {
+      "measurements": {
+        "co2": 687
+      },
+      "lastUpdated": "2015-12-28T13:17:45.490Z"
+    }
+  }
+}
