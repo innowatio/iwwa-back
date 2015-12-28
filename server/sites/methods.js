@@ -6,7 +6,7 @@ Meteor.methods({
         if (!userId) {
             throw new Meteor.Error("Login required");
         }
-        var sito = Siti.findOne({
+        var sito = Sites.findOne({
             _id: sitoId
         });
         if (!sito) {
@@ -25,7 +25,7 @@ Meteor.methods({
         if (!userId) {
             throw new Meteor.Error("Login required");
         }
-        var sito = Siti.findOne({
+        var sito = Sites.findOne({
             _id: sitoId
         });
         if (!sito) {
