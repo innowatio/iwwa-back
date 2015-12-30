@@ -47,8 +47,7 @@ function insertDataFromJSON (path, sensorName) {
             result.day = getTime(i);
             SensorsDailyReadingsAggregates.insert(result);
         }
-        return;
-    })
+    });
 
 }
 
@@ -58,9 +57,8 @@ Meteor.startup(() => {
         SensorsDailyReadingsAggregates.find().count() === 0
     ) {
         const path = "fixtures/sensors-daily-readings-aggregates";
-        const sensorTest1 = ["IT001"]
-        // , "ANZ01", "IT002", "ANZ02", "ZTHL01", "ZTHL02",
-        //     "ZTHL03", "ZTHL04", "COOV01", "COOV02"];
+        const sensorTest1 = ["IT001", "ANZ01", "IT002", "ANZ02", "ZTHL01", "ZTHL02",
+            "ZTHL03", "ZTHL04", "COOV01", "COOV02"];
         insertDataFromJSON(`${path}/test-sites-value.json`, sensorTest1);
 
         const sensorTest2 = ["IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06",
