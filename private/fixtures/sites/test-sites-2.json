@@ -26,12 +26,12 @@
                     "children" : [
                         {
                             "id" : "ANZ05",
-                            "type" : "pod",
+                            "type" : "anz",
                             "description" : "Luci cantina",
                             "children" : [
                                 {
                                     "id" : "ANZ06",
-                                    "type" : "pod",
+                                    "type" : "anz",
                                     "description" : "Luci cantina vini"
                                 }
                             ]
