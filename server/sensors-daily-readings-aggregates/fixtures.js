@@ -1,12 +1,18 @@
-function getTime (day) {
+function getTime (day, monthIndex) {
+    var month = new Date().getMonth() + monthIndex;
+    var year = new Date().getYear();
     if (day.toString().length === 1) {
         day = "0" + day;
     }
-    var month = new Date().getMonth() + 1;
+    if (month === 0) {
+        month = 12;
+        year += 1899;
+    } else {
+        year += 1900;
+    }
     if (month.toString().length === 1) {
         month = "0" + month;
     }
-    const year = new Date().getYear() + 1900;
     return `${year}-${month}-${day}`;
 }
 
@@ -43,16 +49,20 @@ function createData (data, value) {
 
 function insertDataFromJSON (path, sensorName) {
     const monthLength = 30;
+    const monthsIndex = [0, 1];
     var data = JSON.parse(Assets.getText(path));
     sensorName.map(value => {
-        for (var i=1; i<=monthLength; i++) {
-            var result = {};
-            result.measurements = createData(data.measurements, value);
-            result.sensorId = value;
-            result._id = `${value}-${getTime(i)}`;
-            result.day = getTime(i);
-            SensorsDailyReadingsAggregates.insert(result);
-        }
+        monthsIndex.map(monthsIndex => {
+            for (var i=1; i<=monthLength; i++) {
+                var date = getTime(i, monthsIndex);
+                var result = {};
+                result.measurements = createData(data.measurements, value);
+                result.sensorId = value;
+                result._id = `${value}-${date}`;
+                result.day = date;
+                SensorsDailyReadingsAggregates.insert(result);
+            }
+        });
     });
 
 }
