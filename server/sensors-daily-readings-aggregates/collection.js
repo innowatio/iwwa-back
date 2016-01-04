@@ -1,1 +1,1 @@
-SensorsDailyReadingsAggregates = new Mongo.Collection("sensors-daily-readings-aggregates");
+ReadingsDailyAggregates = new Mongo.Collection("readings-daily-aggregates");

@@ -2,7 +2,7 @@ Meteor.publish("dailyMeasuresBySensor", (sensorId, dayStart, dayEnd) => {
     check(sensorId, String);
     check(dayStart, String);
     check(dayEnd, String);
-    return SensorsDailyReadingsAggregates.find({
+    return ReadingsDailyAggregates.find({
         sensorId,
         day: {
             $gte: dayStart,

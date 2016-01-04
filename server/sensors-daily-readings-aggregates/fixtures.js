@@ -60,7 +60,7 @@ function insertDataFromJSON (path, sensorName) {
                 result.sensorId = value;
                 result._id = `${value}-${date}`;
                 result.day = date;
-                SensorsDailyReadingsAggregates.insert(result);
+                ReadingsDailyAggregates.insert(result);
             }
         });
     });
@@ -70,9 +70,9 @@ function insertDataFromJSON (path, sensorName) {
 Meteor.startup(() => {
     if (
         process.env.ENVIRONMENT !== "production" &&
-        SensorsDailyReadingsAggregates.find().count() === 0
+        ReadingsDailyAggregates.find().count() === 0
     ) {
-        const path = "fixtures/sensors-daily-readings-aggregates";
+        const path = "fixtures/readings-daily-aggregates";
         const sensorTest1 = ["IT001", "ANZ01", "IT002", "ANZ02", "ZTHL01", "ZTHL02",
             "ZTHL03", "ZTHL04", "COOV01", "COOV02"];
         insertDataFromJSON(`${path}/test-sites-value.json`, sensorTest1);

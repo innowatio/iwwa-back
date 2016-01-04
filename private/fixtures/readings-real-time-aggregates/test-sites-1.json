@@ -1,6 +1,6 @@
 {
-  "_id": "SitodiTest1",
-  "siteId": "SitodiTest1",
+  "_id": "SitoDiTest1",
+  "siteId": "SitoDiTest1",
   "sensors": {
     "ANZ01": {
       "measurements": {
