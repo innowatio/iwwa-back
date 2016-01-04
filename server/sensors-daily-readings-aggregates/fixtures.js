@@ -1,19 +1,5 @@
 function getTime (day, monthIndex) {
-    var month = new Date().getMonth() + monthIndex;
-    var year = new Date().getYear();
-    if (day.toString().length === 1) {
-        day = "0" + day;
-    }
-    if (month === 0) {
-        month = 12;
-        year += 1899;
-    } else {
-        year += 1900;
-    }
-    if (month.toString().length === 1) {
-        month = "0" + month;
-    }
-    return `${year}-${month}-${day}`;
+    return moment().utc().subtract(monthIndex, "month").date(day).format("YYYY-MM-DD");
 }
 
 function getRandomArbitrary(min, max) {
@@ -53,7 +39,7 @@ function insertDataFromJSON (path, sensorName) {
     var data = JSON.parse(Assets.getText(path));
     sensorName.map(value => {
         monthsIndex.map(monthsIndex => {
-            for (var i=1; i<=monthLength; i++) {
+            for (var i=1; i<=moment().subtract(monthsIndex, "month").daysInMonth(); i++) {
                 var date = getTime(i, monthsIndex);
                 var result = {};
                 result.measurements = createData(data.measurements, value);
