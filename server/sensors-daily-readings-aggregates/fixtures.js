@@ -1,5 +1,11 @@
 function getTime (day) {
-    const month = new Date().getMonth() + 1;
+    if (day.toString().length === 1) {
+        day = "0" + day;
+    }
+    var month = new Date().getMonth() + 1;
+    if (month.toString().length === 1) {
+        month = "0" + month;
+    }
     const year = new Date().getYear() + 1900;
     return `${year}-${month}-${day}`;
 }
