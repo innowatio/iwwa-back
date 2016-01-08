@@ -1,8 +1,12 @@
-Meteor.publish("dailyMeasuresBySensor", (sensorId, day) => {
+Meteor.publish("dailyMeasuresBySensor", (sensorId, dayStart, dayEnd) => {
     check(sensorId, String);
-    check(day, String);
-    return SensorsDailyReadingsAggregates.find({
+    check(dayStart, String);
+    check(dayEnd, String);
+    return ReadingsDailyAggregates.find({
         sensorId,
-        day
+        day: {
+            $gte: dayStart,
+            $lte: dayEnd
+        }
     })
 });
