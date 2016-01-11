@@ -13,11 +13,11 @@ function getRandomArbitrary(min, max) {
 function createData (data, value) {
     const lengthOfTheArray = 12*24;
     var objectKeys = [];
-    if (value.slice(0,3) === "ANZ" || value.slice(0,2) === "IT") {
+    if (value.indexOf("ANZ") >= 0 || value.indexOf("IT") >= 0) {
         objectKeys = ["activeEnergy", "reactiveEnergy", "maxPower"];
-    } else if (value.slice(0,4) === "ZTHL") {
+    } else if (value.indexOf("ZTHL") >= 0) {
         objectKeys = ["temperature", "humidity", "illuminance"];
-    } else if (value.slice(0,4) === "COOV") {
+    } else if (value.indexOf("COOV") >= 0) {
         objectKeys = ["co2"];
     }
     return objectKeys.reduce((prev, value) => {
@@ -34,21 +34,21 @@ function createData (data, value) {
 }
 
 function insertDataFromJSON (path, sensorName) {
-    const monthLength = 30;
-    const monthsIndex = [0, 1];
+    const numberOfMonth = 2
     var data = JSON.parse(Assets.getText(path));
     sensorName.map(value => {
-        monthsIndex.map(monthsIndex => {
-            for (var i=1; i<=moment().subtract(monthsIndex, "month").daysInMonth(); i++) {
-                var date = getTime(i, monthsIndex);
+        for (var l=0; l<numberOfMonth; l++) {
+            for (var i=1; i<=moment().subtract(l, "month").daysInMonth(); i++) {
+                var date = getTime(i, l);
                 var result = {};
                 result.measurements = createData(data.measurements, value);
+                result.measurementsDeltaInMs = 300000;
                 result.sensorId = value;
                 result._id = `${value}-${date}`;
                 result.day = date;
                 ReadingsDailyAggregates.insert(result);
             }
-        });
+        };
     });
 
 }

@@ -1,7 +1,5 @@
 function getTime () {
-    const month = new Date().getMonth() + 1;
-    const year = new Date().getYear() + 1900;
-    return `${year}-${month}`;
+    return moment().utc().format("YYYY-MM")
 }
 
 function insertDataFromJSON (path) {
