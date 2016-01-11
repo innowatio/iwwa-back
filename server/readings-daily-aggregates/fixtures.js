@@ -1,5 +1,5 @@
 function getTime (day, monthIndex) {
-    return moment().utc().subtract(monthIndex, "month").date(day).format("YYYY-MM-DD");
+    return moment.utc().subtract(monthIndex, "month").date(day).format("YYYY-MM-DD");
 }
 
 function getRandomArbitrary(min, max) {
@@ -22,7 +22,7 @@ function createData (data, value) {
     }
     return objectKeys.reduce((prev, value) => {
         var array = [];
-        for (var i=0; i<=lengthOfTheArray; i++) {
+        for (var i=0; i<lengthOfTheArray; i++) {
             const dataValue = data[value][i];
             const max = parseFloat(dataValue + dataValue*10/100);
             const min = parseFloat(dataValue - dataValue*10/100);
