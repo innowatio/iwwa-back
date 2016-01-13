@@ -8,12 +8,12 @@ function getRandomArbitrary(min, max, source) {
     }
     var value = Math.random() * (max - min) + min;
     if (source === "forecast") {
-        value += 10;
+        value += 5;
     }
     return value.toFixed(2);
 }
 
-function createData (data, value) {
+function createData (data, value, source) {
     const lengthOfTheArray = 12*24;
     var objectKeys = [];
     if (value.indexOf("ANZ") >= 0 || value.indexOf("IT") >= 0) {
@@ -29,7 +29,7 @@ function createData (data, value) {
             const dataValue = data[value][i];
             const max = parseFloat(dataValue + dataValue*10/100);
             const min = parseFloat(dataValue - dataValue*10/100);
-            array.push(getRandomArbitrary(max, min));
+            array.push(getRandomArbitrary(max, min, source));
         }
         prev[value] = array.toString();
         return prev;
@@ -38,25 +38,37 @@ function createData (data, value) {
 
 function insertDataFromJSON (path, sensorName, source) {
     const numberOfMonth = 2
-    var data = JSON.parse(Assets.getText(path));
+    const data = JSON.parse(Assets.getText(path));
     sensorName.map(value => {
         for (var l=0; l<numberOfMonth; l++) {
             for (var i=1; i<=moment().subtract(l, "month").daysInMonth(); i++) {
-                var date = getTime(i, l);
-                var result = {};
-                result.measurements = createData(data.measurements, value, source);
-                result.measurementsDeltaInMs = 300000;
-                result.sensorId = value;
-                result.source = source;
-                result._id = `${source}-${value}-${date}`;
-                result.day = date;
-                ReadingsDailyAggregates.insert(result);
+                const date = getTime(i, l);
+                ReadingsDailyAggregates.insert({
+                    _id: `${source}-${value}-${date}`,
+                    sensorId: value,
+                    source,
+                    day: date,
+                    measurements: createData(data.measurements, value, source),
+                    measurementsDeltaInMs: 300000
+                });
             }
         };
     });
 
 }
 
+/*
+Expected structure of the db:
+{
+    _id: "source-sensorId-day",
+    sensorId = "sensorId",
+    source: ["reading", "forecast"],
+    day = "YYYY-MM-DD",
+    measurements = {},
+    measurementsDeltaInMs = 300000
+
+}
+*/
 Meteor.startup(() => {
     if (
         process.env.ENVIRONMENT !== "production" &&
