@@ -2,11 +2,14 @@ function getTime (day, monthIndex) {
     return moment.utc().subtract(monthIndex, "month").date(day).format("YYYY-MM-DD");
 }
 
-function getRandomArbitrary(min, max) {
+function getRandomArbitrary(min, max, source) {
     if (!min || !max) {
         return "";
     }
-    const value = Math.random() * (max - min) + min;
+    var value = Math.random() * (max - min) + min;
+    if (source === "forecast") {
+        value += 10;
+    }
     return value.toFixed(2);
 }
 
@@ -33,7 +36,7 @@ function createData (data, value) {
     }, {})
 }
 
-function insertDataFromJSON (path, sensorName) {
+function insertDataFromJSON (path, sensorName, source) {
     const numberOfMonth = 2
     var data = JSON.parse(Assets.getText(path));
     sensorName.map(value => {
@@ -41,10 +44,11 @@ function insertDataFromJSON (path, sensorName) {
             for (var i=1; i<=moment().subtract(l, "month").daysInMonth(); i++) {
                 var date = getTime(i, l);
                 var result = {};
-                result.measurements = createData(data.measurements, value);
+                result.measurements = createData(data.measurements, value, source);
                 result.measurementsDeltaInMs = 300000;
                 result.sensorId = value;
-                result._id = `${value}-${date}`;
+                result.source = source;
+                result._id = `${source}-${value}-${date}`;
                 result.day = date;
                 ReadingsDailyAggregates.insert(result);
             }
@@ -61,11 +65,14 @@ Meteor.startup(() => {
         const path = "fixtures/readings-daily-aggregates";
         const sensorTest1 = ["IT001", "ANZ01", "IT002", "ANZ02", "ZTHL01", "ZTHL02",
             "ZTHL03", "ZTHL04", "COOV01", "COOV02"];
-        insertDataFromJSON(`${path}/test-sites-value.json`, sensorTest1);
-
         const sensorTest2 = ["IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06",
             "ZTHL05", "ZTHL06", "ZTHL07", "ZTHL08", "ZTHL09", "ZTHL10", "ZTHL11",
             "COOV03", "COOV04", "COOV05"];
-        insertDataFromJSON(`${path}/test-sites-value.json`, sensorTest2);
+        const allowedSource = ["reading", "forecast"];
+
+        allowedSource.map(source => {
+            insertDataFromJSON(`${path}/test-sites-value.json`, sensorTest1, source);
+            insertDataFromJSON(`${path}/test-sites-value.json`, sensorTest2, source);
+        });
     }
 });
