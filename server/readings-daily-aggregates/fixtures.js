@@ -50,9 +50,9 @@ function createMeasurementValues (measurements, sensorId, source, measurementTyp
     const measurementsString = measurements[measurementType];
     const measurementsArray = measurementsString.split(",");
     for (var i=0; i<lengthOfTheArray; i++) {
-        const measurementsValue = measurementsArray[i];
-        const max = parseFloat(measurementsValue + measurementsValue*10/100);
-        const min = parseFloat(measurementsValue - measurementsValue*10/100);
+        const measurementsValue = parseFloat(measurementsArray[i]);
+        const max = (measurementsValue + (measurementsValue*2/100));
+        const min = (measurementsValue - (measurementsValue*2/100));
         array.push(getRandomArbitrary(max, min, source));
     }
     return array.join(",");

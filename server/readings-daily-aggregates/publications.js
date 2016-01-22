@@ -1,15 +1,16 @@
-Meteor.publish("dailyMeasuresBySensor", (sensorId, dayStart, dayEnd, source, measurementType) => {
+Meteor.publish("dailyMeasuresBySensor", (sensorId, dateStart, dateEnd, source, measurementType) => {
     check(sensorId, String);
+    check(measurementType, String);
     check(source, String);
-    check(dayStart, String);
-    check(dayEnd, String);
+    check(dateStart, String);
+    check(dateEnd, String);
     return ReadingsDailyAggregates.find({
         sensorId,
         source,
-        measurementType: measurementType.key,
+        measurementType,
         day: {
-            $gte: dayStart,
-            $lte: dayEnd
+            $gte: dateStart,
+            $lte: dateEnd
         }
     })
 });
