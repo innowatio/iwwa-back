@@ -10,7 +10,7 @@ function getMeasurementsTypes (sensorId) {
     } else if (sensorId.indexOf("COOV") >= 0) {
         return ["co2"];
     } else {
-        return [];
+        return ["activeEnergy", "reactiveEnergy", "maxPower"];
     }
 }
 
@@ -116,19 +116,21 @@ Meteor.startup(() => {
         ReadingsDailyAggregates.find().count() === 0
     ) {
         const path = "fixtures/readings-daily-aggregates";
-        const listOfSensorIdInSiteTest1 = ["IT001", "ANZ01", "IT002", "ANZ02", "ZTHL01", "ZTHL02",
+        const listOfSensorIdInSiteTest1 = ["SitoDiTest1", "IT001", "ANZ01", "IT002", "ANZ02", "ZTHL01", "ZTHL02",
             "ZTHL03", "ZTHL04", "COOV01", "COOV02"];
-        const listOfSensorIdInSiteTest2 = ["IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06",
+        const listOfSensorIdInSiteTest2 = ["SitoDiTest2", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06",
             "ZTHL05", "ZTHL06", "ZTHL07", "ZTHL08", "ZTHL09", "ZTHL10", "ZTHL11",
             "COOV03", "COOV04", "COOV05"];
         const allowedSource = ["reading", "forecast"];
 
+        // FIXTURES FOR CHARTS
         allowedSource.map(source => {
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest1, source);
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest2, source);
         });
 
-        ["IT001", "ANZ01", "IT002", "ANZ02", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06"].map(sensorId => {
+        // FIXTURES FOR ALARMS
+        ["SitoDiTest1", "SitoDiTest2", "IT001", "ANZ01", "IT002", "ANZ02", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06"].map(sensorId => {
             Alarms.insert({
                 podId: sensorId,
                 name: sensorId,
