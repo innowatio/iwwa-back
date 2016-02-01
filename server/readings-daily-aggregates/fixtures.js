@@ -97,6 +97,19 @@ function insertDataFromJSON (path, sensorsIds, source) {
 *       unitOfMeasurement: ""
 *   }
 */
+
+function getAlarms (sensorId) {
+    const alarms = [];
+    for (i=0; i<28; i++) {
+        const date = parseInt(moment().startOf("month").subtract(1, "month").add({day: i, hour: 12}).valueOf())
+        const alarm = {
+            _id: `${sensorId}-${date}`,
+            date
+        };
+        alarms.push(alarm)
+    }
+    return alarms;
+}
 Meteor.startup(() => {
     if (
         process.env.ENVIRONMENT !== "production" &&
@@ -114,5 +127,15 @@ Meteor.startup(() => {
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest1, source);
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest2, source);
         });
+
+        ["IT001", "ANZ01", "IT002", "ANZ02", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06"].map(sensorId => {
+            Alarms.insert({
+                podId: sensorId,
+                name: sensorId,
+                active: true,
+                notifications: getAlarms(sensorId)
+            })
+        });
+
     }
 });
