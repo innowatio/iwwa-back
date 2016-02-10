@@ -134,6 +134,7 @@ Meteor.startup(() => {
             Alarms.insert({
                 podId: sensorId,
                 name: sensorId,
+                type: "automatic",
                 active: true,
                 notifications: getAlarms(sensorId)
             })
