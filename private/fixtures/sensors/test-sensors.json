@@ -13,4 +13,84 @@
 {
     "_id" : "IT004",
     "description" : "Pod IT004"
+},
+{
+    "_id": "ZTHL01",
+    "type": "thl",
+    "description": "Sensore ambientale 1 area destra"
+},
+{
+    "_id": "ZTHL02",
+    "type": "thl",
+    "description": "Sensore ambientale 2 area destra"
+},
+{
+    "_id": "ZTHL03",
+    "type": "thl",
+    "description": "Sensore ambientale 3 area sinistra"
+},
+{
+    "_id": "ZTHL04",
+    "type": "thl",
+    "description": "Sensore ambientale 4 area sinistra"
+},
+{
+    "_id" : "COOV01",
+    "description" : "Sensore CO2",
+    "type" : "co2"
+},
+{
+    "_id": "COOV02",
+    "type": "co2",
+    "description": "Sonda co2 su HVAC02"
+},
+{
+    "_id" : "ZTHL05",
+    "type" : "thl",
+    "description" : "Sensore ambientale 1 area destra"
+},
+{
+    "_id" : "ZTHL06",
+    "type" : "thl",
+    "description" : "Sensore ambientale 5 area destra"
+},
+{
+    "_id" : "ZTHL07",
+    "type" : "thl",
+    "description" : "Sensore ambientale 5 area destra"
+},
+{
+    "_id" : "ZTHL08",
+    "type" : "thl",
+    "description" : "Sensore ambientale 2 area destra"
+},
+{
+    "_id" : "ZTHL09",
+    "type" : "thl",
+    "description" : "Sensore ambientale 6 area destra"
+},
+{
+    "_id" : "ZTHL10",
+    "type" : "thl",
+    "description" : "Sensore ambientale 3 area sinistra"
+},
+{
+    "_id" : "ZTHL11",
+    "type" : "thl",
+    "description" : "Sensore ambientale 4 area sinistra"
+},
+{
+    "_id" : "COOV03",
+    "type" : "co2",
+    "description" : "Sonda co2 su HVAC01"
+},
+{
+    "_id" : "COOV04",
+    "type" : "co2",
+    "description" : "Sonda co2 su HVAC03"
+},
+{
+    "_id" : "COOV05",
+    "type" : "co2",
+    "description" : "Sonda co2 su HVAC02"
 }]
