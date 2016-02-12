@@ -2,6 +2,9 @@ const DATE_FORMAT = "YYYY-MM-DD";
 const oneDayInMs = moment.duration(1, "day").asMilliseconds();
 
 function daysInInterval (start, end) {
+    if (start === end) {
+        return [start];
+    }
     const startMs = moment(start).startOf("day").valueOf();
     const endMs = moment(end).startOf("day").valueOf();
     const numberOfDays = (endMs - startMs) / oneDayInMs;
