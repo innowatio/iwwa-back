@@ -58,6 +58,7 @@ localstorage@1.0.5
 logging@1.0.8
 meteor@1.1.10
 meteor-base@1.0.1
+meteorhacks:cluster@1.6.9
 meteorhacks:meteorx@1.0.2
 meteorhacks:unblock@1.1.0
 mfactory:admin-lte@0.0.2
