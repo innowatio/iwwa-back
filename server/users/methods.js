@@ -19,12 +19,27 @@ Meteor.methods({
         }
         Accounts.setPassword(targetUserId, newPassword);
     },
-    saveRegistrationId: function (appRegistrationId) {
+    saveRegistrationId: function (appRegistrationId, device) {
         check(appRegistrationId, String);
+        check(device, Object);
+        check(device.uuid, String);
+        check(device.model, String);
+        check(device.platform, String);
+        check(device.version, String);
         var userId = Meteor.userId();
         if (!userId) {
             throw new Meteor.Error("Login required");
         }
-        Meteor.users.update({_id: userId}, {$set: {appRegistrationId}});
+        Meteor.users.update({_id: userId}, {
+            $set: {
+                "services.apn.devices": [{
+                    uuid: device.uuid,
+                    model: device.model,
+                    platform: device.platform,
+                    version: device.version,
+                    token: appRegistrationId,
+                }]
+            }
+        });
     }
 });
