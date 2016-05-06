@@ -44,44 +44,55 @@ function getRandomArbitrary(min, max, source) {
     return value.toFixed(2);
 }
 
-function createMeasurementValues (measurements, sensorId, source, measurementType) {
-    const lengthOfTheArray = 12*24;
-    var array = [];
-    const measurementsString = measurements[measurementType];
-    const measurementsArray = measurementsString.split(",");
-    for (var i=0; i<lengthOfTheArray; i++) {
-        const measurementsValue = parseFloat(measurementsArray[i]);
-        const max = (measurementsValue + (measurementsValue*2/100));
-        const min = (measurementsValue - (measurementsValue*2/100));
-        array.push(getRandomArbitrary(max, min, source));
-    }
-    return array.join(",");
+function createMeasurementValues (measurements, measurementType, source) {
+    var filteredMeasurements = measurements[measurementType].split(",").filter(x => !isNaN(parseFloat(x)));
+    var values = filteredMeasurements.map(x => {
+        const measurementsValue = parseFloat(x);
+        const max = (measurementsValue + (measurementsValue * 2 / 100));
+        const min = (measurementsValue - (measurementsValue * 2 / 100));
+        return getRandomArbitrary(max, min, source);
+    }).sort();
+    return values.join(",");
 }
 
-function insertDataFromJSON (path, sensorsIds, source) {
+function createMeasurementTimes (measurements, measurementType, date) {
+    var dayStart = moment.utc(date).valueOf();
+    var dayEnd = moment.utc(date).endOf('day').valueOf();
+    var filteredMeasurements = measurements[measurementType].split(",").filter(x => !isNaN(parseFloat(x)));
+    var times = filteredMeasurements.map(x => {
+        return Math.floor((Math.random() * (dayEnd - dayStart)) + dayStart);
+    }).sort();
+    return times.join(",");
+}
+
+function insertDataFromJSON(path, sensorsIds, source) {
     const numberOfMonth = 2
     const data = JSON.parse(Assets.getText(path));
     sensorsIds.map(sensorId => {
         for (var monthIdx=0; monthIdx<numberOfMonth; monthIdx++) {
             for (var dayOfMonth=1; dayOfMonth<=moment().subtract(monthIdx, "month").daysInMonth(); dayOfMonth++) {
-                const day = getTime(dayOfMonth, monthIdx);
+                const date = getTime(dayOfMonth, monthIdx);
                 const measurementsTypes = getMeasurementsTypes(sensorId);
                 measurementsTypes.forEach(measurementType => {
-                    ReadingsDailyAggregates.insert({
-                        _id: `${sensorId}-${day}-${source}-${measurementType}`,
+                    var obj = {
+                        _id: `${sensorId}-${date}-${source}-${measurementType}`,
                         sensorId,
-                        day,
+                        date,
                         source,
                         measurementType,
-                        measurementValues: createMeasurementValues(data.measurements, sensorId, source, measurementType),
-                        measurementsDeltaInMs: 300000,
+                        measurementValues: createMeasurementValues(data.measurements, measurementType, source),
+                        measurementTimes: createMeasurementTimes(data.measurements, measurementType, date),
                         unitOfMeasurement: getUnitOfMeasurement(measurementType)
-                    });
+                    }
+                    if (obj.measurementValues.split(",").length !== obj.measurementTimes.split(",").length) {
+                        console.log(`values=${obj.measurementValues.split(",").length} timestamps=${obj.measurementTimes.split(",").length}`);
+                        throw Error("Values and timestamps number do not match");
+                    }
+                    ReadingsDailyAggregates.insert(obj);
                 });
             }
         };
     });
-
 }
 
 /*
@@ -92,8 +103,8 @@ function insertDataFromJSON (path, sensorsIds, source) {
 *       sensorId = "sensorId",
 *       source: ["reading", "forecast"],
 *       measurementType = "",
-*       measurementsDeltaInMs = 300000,
 *       measurementValues: "",
+*       measurementTimes: "",
 *       unitOfMeasurement: ""
 *   }
 */
