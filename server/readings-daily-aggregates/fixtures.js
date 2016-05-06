@@ -77,7 +77,7 @@ function insertDataFromJSON(path, sensorsIds, source) {
                     var obj = {
                         _id: `${sensorId}-${date}-${source}-${measurementType}`,
                         sensorId,
-                        date,
+                        day: date,
                         source,
                         measurementType,
                         measurementValues: createMeasurementValues(data.measurements, measurementType, source),
