@@ -15,7 +15,6 @@ yogiben:admin
 mondora:asteroid
 momentjs:moment
 ian:accounts-ui-bootstrap-3
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -32,3 +31,5 @@ check
 ddp-rate-limiter
 ecmascript
 meteorhacks:cluster
+standard-minifier-css
+standard-minifier-js
