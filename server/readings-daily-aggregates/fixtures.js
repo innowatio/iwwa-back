@@ -3,8 +3,8 @@ function getTime (day, monthIndex) {
 }
 
 function getMeasurementsTypes (sensorId) {
-    if (sensorId.indexOf("ANZ") >= 0 || sensorId.indexOf("IT") >= 0) {
-        return ["activeEnergy", "reactiveEnergy", "maxPower"];
+    if (sensorId.indexOf("IT-") >= 0) {
+        return ["weather-humidity", "weather-cloudeness", "weather-temperature", "weather-id"];
     } else if (sensorId.indexOf("ZTHL") >= 0) {
         return ["temperature", "humidity", "illuminance"];
     } else if (sensorId.indexOf("COOV") >= 0) {
@@ -30,6 +30,14 @@ function getUnitOfMeasurement (measurementType) {
         return "Lux";
     case "co2":
         return "ppm";
+    case "weather-humidity":
+        return "%";
+    case "weather-cloudeness":
+        return "%";
+    case "weather-temperature":
+        return "°C";
+    case "weather-id":
+        return "id";
     }
 }
 
@@ -45,6 +53,10 @@ function getRandomArbitrary(min, max, source) {
 }
 
 function createMeasurementValues (measurements, measurementType, source) {
+    // weather-id is an id, so it should be fixed to existent integer values.
+    if (measurementType.indexOf("weather-id") >= 0) {
+        return measurements[measurementType];
+    }
     var filteredMeasurements = measurements[measurementType].split(",").filter(x => !isNaN(parseFloat(x)));
     var values = filteredMeasurements.map(x => {
         const measurementsValue = parseFloat(x);
@@ -58,6 +70,13 @@ function createMeasurementValues (measurements, measurementType, source) {
 function createMeasurementTimes (measurements, measurementType, date) {
     var dayStart = moment.utc(date).valueOf();
     var dayEnd = moment.utc(date).endOf('day').valueOf();
+    if (measurementType.indexOf("weather") >= 0) {
+        var timesWeather = [];
+        for (var i=1; i<=12; i++) {
+            timesWeather.push(moment(dayStart).add({hours: i * 2}).valueOf());
+        }
+        return timesWeather.join(",");
+    }
     var filteredMeasurements = measurements[measurementType].split(",").filter(x => !isNaN(parseFloat(x)));
     var times = filteredMeasurements.map(x => {
         return Math.floor((Math.random() * (dayEnd - dayStart)) + dayStart);
@@ -101,7 +120,7 @@ function insertDataFromJSON(path, sensorsIds, source) {
 *       _id: "sensorId-day-source-measurementType",
 *       day = "YYYY-MM-DD",
 *       sensorId = "sensorId",
-*       source: ["reading", "forecast"],
+*       source: "",
 *       measurementType = "",
 *       measurementValues: "",
 *       measurementTimes: "",
@@ -132,12 +151,14 @@ Meteor.startup(() => {
         const listOfSensorIdInSiteTest2 = ["SitoDiTest2", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06",
             "ZTHL05", "ZTHL06", "ZTHL07", "ZTHL08", "ZTHL09", "ZTHL10", "ZTHL11",
             "COOV03", "COOV04", "COOV05"];
+        const listOfWeatherSensor = ["IT-CO", "IT-SO", "IT-MI", "IT-BG"];
         const allowedSource = ["reading", "forecast"];
 
         // FIXTURES FOR CHARTS
         allowedSource.map(source => {
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest1, source);
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest2, source);
+            insertDataFromJSON(`${path}/test-sites-value.json`, listOfWeatherSensor, source);
         });
 
         // FIXTURES FOR ALARMS
