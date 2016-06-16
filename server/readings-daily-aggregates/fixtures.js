@@ -42,9 +42,6 @@ function getUnitOfMeasurement (measurementType) {
 }
 
 function getRandomArbitrary(min, max, source) {
-    if (!min || !max) {
-        return "";
-    }
     var value = Math.random() * (max - min) + min;
     if (source === "forecast") {
         value += 5;
