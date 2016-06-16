@@ -1,0 +1,1 @@
+FavoriteCharts = new Mongo.Collection("favorite-charts");
