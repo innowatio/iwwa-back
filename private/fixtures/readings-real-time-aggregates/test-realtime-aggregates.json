@@ -1,0 +1,137 @@
+[{
+    "_id" : "ANZ01-2016-06-23-reading-activeEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "activeEnergy",
+    "measurementValue" : 16.88,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ANZ01-2016-06-23-reading-reactiveEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "reactiveEnergy",
+    "measurementValue" : 27.18,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ANZ01-2016-06-23-reading-maxPower",
+    "day" : "2016-06-22",
+    "measurementType" : "maxPower",
+    "measurementValue" : 180,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ANZ02-2016-06-23-reading-activeEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "activeEnergy",
+    "measurementValue" : 37.88,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ANZ02-2016-06-23-reading-reactiveEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "reactiveEnergy",
+    "measurementValue" : -7.12,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ANZ02-2016-06-23-reading-maxPower",
+    "day" : "2016-06-22",
+    "measurementType" : "maxPower",
+    "measurementValue" : 0,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL01-2016-06-23-reading-temperature",
+    "day" : "2016-06-22",
+    "measurementType" : "temperature",
+    "measurementValue" : 19.5,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL01-2016-06-23-reading-humidity",
+    "day" : "2016-06-22",
+    "measurementType" : "humidity",
+    "measurementValue" : 37,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL01-2016-06-23-reading-illuminance",
+    "day" : "2016-06-22",
+    "measurementType" : "illuminance",
+    "measurementValue" : 148,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL02-2016-06-23-reading-temperature",
+    "day" : "2016-06-22",
+    "measurementType" : "temperature",
+    "measurementValue" : 20.5,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL02-2016-06-23-reading-humidity",
+    "day" : "2016-06-22",
+    "measurementType" : "humidity",
+    "measurementValue" : 34,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL02-2016-06-23-reading-illuminance",
+    "day" : "2016-06-22",
+    "measurementType" : "illuminance",
+    "measurementValue" : 123,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL03-2016-06-23-reading-temperature",
+    "day" : "2016-06-22",
+    "measurementType" : "temperature",
+    "measurementValue" : 24.5,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL03-2016-06-23-reading-humidity",
+    "day" : "2016-06-22",
+    "measurementType" : "humidity",
+    "measurementValue" : 14,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "ZTHL03-2016-06-23-reading-illuminance",
+    "day" : "2016-06-22",
+    "measurementType" : "illuminance",
+    "measurementValue" : 173,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "COOV01-2016-06-23-reading-co2",
+    "day" : "2016-06-22",
+    "measurementType" : "co2",
+    "measurementValue" : 669,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}, {
+    "_id" : "COOV02-2016-06-23-reading-co2",
+    "day" : "2016-06-22",
+    "measurementType" : "co2",
+    "measurementValue" : 673,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "source" : "reading"
+}]

@@ -4,7 +4,9 @@ Meteor.startup(() => {
         ReadingsRealTimeAggregates.find().count() === 0
     ) {
         const path = "fixtures/readings-real-time-aggregates";
-        ReadingsRealTimeAggregates.insert(JSON.parse(Assets.getText(`${path}/test-sites-1.json`)));
-        ReadingsRealTimeAggregates.insert(JSON.parse(Assets.getText(`${path}/test-sites-2.json`)));
+        const json = JSON.parse(Assets.getText(`${path}/test-realtime-aggregates.json`));
+        json.map(realtime => {
+            ReadingsRealTimeAggregates.insert(realtime);
+        })
     }
 });
