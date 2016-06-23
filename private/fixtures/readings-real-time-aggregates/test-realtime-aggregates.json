@@ -5,7 +5,7 @@
     "measurementValue" : 16.88,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ANZ01"
 }, {
     "_id" : "ANZ01-2016-06-23-reading-reactiveEnergy",
     "day" : "2016-06-22",
@@ -13,7 +13,7 @@
     "measurementValue" : 27.18,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ANZ01"
 }, {
     "_id" : "ANZ01-2016-06-23-reading-maxPower",
     "day" : "2016-06-22",
@@ -21,7 +21,7 @@
     "measurementValue" : 180,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ANZ01"
 }, {
     "_id" : "ANZ02-2016-06-23-reading-activeEnergy",
     "day" : "2016-06-22",
@@ -29,7 +29,7 @@
     "measurementValue" : 37.88,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ANZ02"
 }, {
     "_id" : "ANZ02-2016-06-23-reading-reactiveEnergy",
     "day" : "2016-06-22",
@@ -37,7 +37,7 @@
     "measurementValue" : -7.12,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ANZ02"
 }, {
     "_id" : "ANZ02-2016-06-23-reading-maxPower",
     "day" : "2016-06-22",
@@ -45,7 +45,7 @@
     "measurementValue" : 0,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ANZ02"
 }, {
     "_id" : "ZTHL01-2016-06-23-reading-temperature",
     "day" : "2016-06-22",
@@ -53,7 +53,7 @@
     "measurementValue" : 19.5,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL01"
 }, {
     "_id" : "ZTHL01-2016-06-23-reading-humidity",
     "day" : "2016-06-22",
@@ -61,7 +61,7 @@
     "measurementValue" : 37,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL01"
 }, {
     "_id" : "ZTHL01-2016-06-23-reading-illuminance",
     "day" : "2016-06-22",
@@ -69,7 +69,7 @@
     "measurementValue" : 148,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL01"
 }, {
     "_id" : "ZTHL02-2016-06-23-reading-temperature",
     "day" : "2016-06-22",
@@ -77,7 +77,7 @@
     "measurementValue" : 20.5,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL02"
 }, {
     "_id" : "ZTHL02-2016-06-23-reading-humidity",
     "day" : "2016-06-22",
@@ -85,7 +85,7 @@
     "measurementValue" : 34,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL02"
 }, {
     "_id" : "ZTHL02-2016-06-23-reading-illuminance",
     "day" : "2016-06-22",
@@ -93,7 +93,7 @@
     "measurementValue" : 123,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL02"
 }, {
     "_id" : "ZTHL03-2016-06-23-reading-temperature",
     "day" : "2016-06-22",
@@ -101,7 +101,7 @@
     "measurementValue" : 24.5,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL03"
 }, {
     "_id" : "ZTHL03-2016-06-23-reading-humidity",
     "day" : "2016-06-22",
@@ -109,7 +109,7 @@
     "measurementValue" : 14,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL03"
 }, {
     "_id" : "ZTHL03-2016-06-23-reading-illuminance",
     "day" : "2016-06-22",
@@ -117,7 +117,7 @@
     "measurementValue" : 173,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "ZTHL03"
 }, {
     "_id" : "COOV01-2016-06-23-reading-co2",
     "day" : "2016-06-22",
@@ -125,7 +125,7 @@
     "measurementValue" : 669,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "COOV01"
 }, {
     "_id" : "COOV02-2016-06-23-reading-co2",
     "day" : "2016-06-22",
@@ -133,5 +133,5 @@
     "measurementValue" : 673,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
-    "source" : "reading"
+    "sensorId" : "COOV01"
 }]
