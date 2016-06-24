@@ -1,3 +1,12 @@
-Meteor.publish("readingsRealTimeAggregatesBySite", function (siteId) {
-    return ReadingsRealTimeAggregates.find({siteId});
+Meteor.publish("readingsRealTimeAggregatesBySite", (siteId) => {
+
+    const site = Sites.findOne({
+        _id: siteId
+    })
+
+    return ReadingsRealTimeAggregates.find({
+        sensorId: {
+            $in: site.sensorsIds
+        }
+    });
 });

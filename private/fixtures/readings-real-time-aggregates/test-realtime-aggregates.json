@@ -4,7 +4,7 @@
     "measurementType" : "activeEnergy",
     "measurementValue" : 16.88,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "kWh",
     "sensorId" : "ANZ01"
 }, {
     "_id" : "ANZ01-2016-06-23-reading-reactiveEnergy",
@@ -12,7 +12,7 @@
     "measurementType" : "reactiveEnergy",
     "measurementValue" : 27.18,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "kVArh",
     "sensorId" : "ANZ01"
 }, {
     "_id" : "ANZ01-2016-06-23-reading-maxPower",
@@ -20,7 +20,7 @@
     "measurementType" : "maxPower",
     "measurementValue" : 180,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "VAr",
     "sensorId" : "ANZ01"
 }, {
     "_id" : "ANZ02-2016-06-23-reading-activeEnergy",
@@ -28,7 +28,7 @@
     "measurementType" : "activeEnergy",
     "measurementValue" : 37.88,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "kWh",
     "sensorId" : "ANZ02"
 }, {
     "_id" : "ANZ02-2016-06-23-reading-reactiveEnergy",
@@ -36,7 +36,7 @@
     "measurementType" : "reactiveEnergy",
     "measurementValue" : -7.12,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "kVArh",
     "sensorId" : "ANZ02"
 }, {
     "_id" : "ANZ02-2016-06-23-reading-maxPower",
@@ -44,7 +44,7 @@
     "measurementType" : "maxPower",
     "measurementValue" : 0,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "VAr",
     "sensorId" : "ANZ02"
 }, {
     "_id" : "ZTHL01-2016-06-23-reading-temperature",
@@ -52,7 +52,7 @@
     "measurementType" : "temperature",
     "measurementValue" : 19.5,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "°C",
     "sensorId" : "ZTHL01"
 }, {
     "_id" : "ZTHL01-2016-06-23-reading-humidity",
@@ -68,7 +68,7 @@
     "measurementType" : "illuminance",
     "measurementValue" : 148,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "Lux",
     "sensorId" : "ZTHL01"
 }, {
     "_id" : "ZTHL02-2016-06-23-reading-temperature",
@@ -76,7 +76,7 @@
     "measurementType" : "temperature",
     "measurementValue" : 20.5,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "°C",
     "sensorId" : "ZTHL02"
 }, {
     "_id" : "ZTHL02-2016-06-23-reading-humidity",
@@ -92,7 +92,7 @@
     "measurementType" : "illuminance",
     "measurementValue" : 123,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "Lux",
     "sensorId" : "ZTHL02"
 }, {
     "_id" : "ZTHL03-2016-06-23-reading-temperature",
@@ -100,7 +100,7 @@
     "measurementType" : "temperature",
     "measurementValue" : 24.5,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "°C",
     "sensorId" : "ZTHL03"
 }, {
     "_id" : "ZTHL03-2016-06-23-reading-humidity",
@@ -116,7 +116,7 @@
     "measurementType" : "illuminance",
     "measurementValue" : 173,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "Lux",
     "sensorId" : "ZTHL03"
 }, {
     "_id" : "COOV01-2016-06-23-reading-co2",
@@ -124,7 +124,7 @@
     "measurementType" : "co2",
     "measurementValue" : 669,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
+    "unitOfMeasurement" : "ppm",
     "sensorId" : "COOV01"
 }, {
     "_id" : "COOV02-2016-06-23-reading-co2",
@@ -132,6 +132,6 @@
     "measurementType" : "co2",
     "measurementValue" : 673,
     "measurementTime" : 1466632800000,
-    "unitOfMeasurement" : "%",
-    "sensorId" : "COOV01"
+    "unitOfMeasurement" : "ppm",
+    "sensorId" : "COOV02"
 }]
