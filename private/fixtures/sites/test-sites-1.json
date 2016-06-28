@@ -30,49 +30,43 @@
       "id": "ZTHL01",
       "type": "thl",
       "description": "Sensore ambientale 1 area destra",
-      "children": [
-
-      ]
+      "children": []
     },
     {
       "id": "ZTHL02",
       "type": "thl",
       "description": "Sensore ambientale 2 area destra",
-      "children": [
-
-      ]
+      "children": []
     },
     {
       "id": "ZTHL03",
       "type": "thl",
       "description": "Sensore ambientale 3 area sinistra",
-      "children": [
-
-      ]
+      "children": []
     },
     {
       "id": "ZTHL04",
       "type": "thl",
       "description": "Sensore ambientale 4 area sinistra",
-      "children": [
-
-      ]
+      "children": []
     },
     {
       "id": "COOV01",
       "type": "co2",
       "description": "Sonda co2 su HVAC01",
-      "children": [
-
-      ]
+      "children": []
     },
     {
       "id": "COOV02",
       "type": "co2",
       "description": "Sonda co2 su HVAC02",
-      "children": [
-
-      ]
+      "children": []
+    },
+    {
+      "id": "IT-BG",
+      "type": "weather",
+      "description": "Sensore meteo su BG",
+      "children": []
     }
   ],
   "sensorsIds": [
@@ -85,6 +79,7 @@
     "ZTHL03",
     "ZTHL04",
     "COOV01",
-    "COOV02"
+    "COOV02",
+    "IT-BG"
   ]
 }

@@ -1,38 +1,38 @@
 {
     "_id": "SitoDiTest2",
-    "name" : "Sito di Test 2",
-    "sensors" : [
+    "name": "Sito di Test 2",
+    "sensors": [
         {
-            "id" : "IT003",
-            "type" : "pod",
-            "description" : "Luci e utenze varie",
-            "children" : [
+            "id": "IT003",
+            "type": "pod",
+            "description": "Luci e utenze varie",
+            "children": [
                 {
-                    "id" : "ANZ03",
-                    "type" : "pod-anz",
-                    "description" : "Luci e utenze varie"
+                    "id": "ANZ03",
+                    "type": "pod-anz",
+                    "description": "Luci e utenze varie"
                 }
             ]
         },
         {
-            "id" : "IT004",
-            "type" : "pod",
-            "description" : "Climatizzazione Vendita e Magazzino",
-            "children" : [
+            "id": "IT004",
+            "type": "pod",
+            "description": "Climatizzazione Vendita e Magazzino",
+            "children": [
                 {
-                    "id" : "ANZ04",
-                    "type" : "pod-anz",
-                    "description" : "Climatizzazione Vendita e Magazzino",
-                    "children" : [
+                    "id": "ANZ04",
+                    "type": "pod-anz",
+                    "description": "Climatizzazione Vendita e Magazzino",
+                    "children": [
                         {
-                            "id" : "ANZ05",
-                            "type" : "anz",
-                            "description" : "Luci cantina",
-                            "children" : [
+                            "id": "ANZ05",
+                            "type": "anz",
+                            "description": "Luci cantina",
+                            "children": [
                                 {
-                                    "id" : "ANZ06",
-                                    "type" : "anz",
-                                    "description" : "Luci cantina vini"
+                                    "id": "ANZ06",
+                                    "type": "anz",
+                                    "description": "Luci cantina vini"
                                 }
                             ]
                         }
@@ -41,68 +41,74 @@
             ]
         },
         {
-            "id" : "ZTHL05",
-            "type" : "thl",
-            "description" : "Sensore ambientale 1 area destra",
-            "children" : [
+            "id": "ZTHL05",
+            "type": "thl",
+            "description": "Sensore ambientale 1 area destra",
+            "children": [
                 {
-                    "id" : "ZTHL06",
-                    "type" : "thl",
-                    "description" : "Sensore ambientale 5 area destra",
-                    "children" : [
+                    "id": "ZTHL06",
+                    "type": "thl",
+                    "description": "Sensore ambientale 5 area destra",
+                    "children": [
                         {
-                            "id" : "ZTHL07",
-                            "type" : "thl",
-                            "description" : "Sensore ambientale 5 area destra"
+                            "id": "ZTHL07",
+                            "type": "thl",
+                            "description": "Sensore ambientale 5 area destra"
                         }
                     ]
                 }
             ]
         },
         {
-            "id" : "ZTHL08",
-            "type" : "thl",
-            "description" : "Sensore ambientale 2 area destra",
-            "children" : [
+            "id": "ZTHL08",
+            "type": "thl",
+            "description": "Sensore ambientale 2 area destra",
+            "children": [
                 {
-                    "id" : "ZTHL09",
-                    "type" : "thl",
-                    "description" : "Sensore ambientale 6 area destra"
+                    "id": "ZTHL09",
+                    "type": "thl",
+                    "description": "Sensore ambientale 6 area destra"
                 }
             ]
         },
         {
-            "id" : "ZTHL10",
-            "type" : "thl",
-            "description" : "Sensore ambientale 3 area sinistra",
-            "children" : []
+            "id": "ZTHL10",
+            "type": "thl",
+            "description": "Sensore ambientale 3 area sinistra",
+            "children": []
         },
         {
-            "id" : "ZTHL11",
-            "type" : "thl",
-            "description" : "Sensore ambientale 4 area sinistra",
-            "children" : []
+            "id": "ZTHL11",
+            "type": "thl",
+            "description": "Sensore ambientale 4 area sinistra",
+            "children": []
         },
         {
-            "id" : "COOV03",
-            "type" : "co2",
-            "description" : "Sonda co2 su HVAC01",
-            "children" : [
+            "id": "COOV03",
+            "type": "co2",
+            "description": "Sonda co2 su HVAC01",
+            "children": [
                 {
-                    "id" : "COOV04",
-                    "type" : "co2",
-                    "description" : "Sonda co2 su HVAC03"
+                    "id": "COOV04",
+                    "type": "co2",
+                    "description": "Sonda co2 su HVAC03"
                 }
             ]
         },
         {
-            "id" : "COOV05",
-            "type" : "co2",
-            "description" : "Sonda co2 su HVAC02",
-            "children" : []
+            "id": "COOV05",
+            "type": "co2",
+            "description": "Sonda co2 su HVAC02",
+            "children": []
+        },
+        {
+            "id": "IT-BG",
+            "type": "weather",
+            "description": "Sensore meteo su BG",
+            "children": []
         }
     ],
-    "sensorsIds" : [
+    "sensorsIds": [
         "IT003",
         "ANZ03",
         "IT004",
@@ -118,6 +124,7 @@
         "ZTHL11",
         "COOV03",
         "COOV04",
-        "COOV05"
+        "COOV05",
+        "IT-BG"
     ]
 }

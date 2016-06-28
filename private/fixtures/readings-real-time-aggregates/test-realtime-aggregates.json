@@ -182,4 +182,36 @@
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "ppm",
     "sensorId" : "COOV02"
+}, {
+    "_id" : "IT-BG-2016-06-23-reading-weather-cloudness",
+    "day" : "2016-06-22",
+    "measurementType" : "weather-cloudness",
+    "measurementValue" : 30,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "sensorId" : "IT-BG"
+}, {
+    "_id" : "IT-BG-2016-06-23-reading-weather-humidity",
+    "day" : "2016-06-22",
+    "measurementType" : "weather-humidity",
+    "measurementValue" : 55,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "%",
+    "sensorId" : "IT-BG"
+}, {
+    "_id" : "IT-BG-2016-06-23-reading-weather-temperature",
+    "day" : "2016-06-22",
+    "measurementType" : "weather-humidity",
+    "measurementValue" : 27,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "°C",
+    "sensorId" : "IT-BG"
+}, {
+    "_id" : "IT-BG-2016-06-23-reading-weather-id",
+    "day" : "2016-06-22",
+    "measurementType" : "weather-id",
+    "measurementValue" : 500,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "id",
+    "sensorId" : "IT-BG"
 }]
