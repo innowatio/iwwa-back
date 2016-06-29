@@ -201,7 +201,7 @@
 }, {
     "_id" : "IT-BG-2016-06-23-reading-weather-temperature",
     "day" : "2016-06-22",
-    "measurementType" : "weather-humidity",
+    "measurementType" : "weather-temperature",
     "measurementValue" : 27,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "°C",
