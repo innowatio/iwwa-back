@@ -33,3 +33,4 @@ ecmascript
 meteorhacks:cluster
 standard-minifier-css
 standard-minifier-js
+http
