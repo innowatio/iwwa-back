@@ -37,7 +37,7 @@ Meteor.methods({
                     model: device.model,
                     platform: device.platform,
                     version: device.version,
-                    token: appRegistrationId,
+                    token: appRegistrationId
                 }]
             }
         });
