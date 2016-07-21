@@ -14,11 +14,7 @@ Accounts.registerLoginHandler("sso", (options) => {
     });
     const {tokenId} = result.data;
     if (200 === result.statusCode && tokenId) {
-        if (setTokenOnInnowatioSSO(tokenId)) {
-            return getUserId(tokenId);
-        } else {
-            throw new Meteor.Error(401, "set-innowatio-sso-token-failed");
-        }
+        return insertOrUpdateUser(username, tokenId);
     } else {
         throw new Meteor.Error(401, "authentication-failed");
     }
@@ -32,14 +28,17 @@ Accounts.validateLoginAttempt(function (attempt) {
 });
 
 function checkToken (user) {
-    const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/${user.innowatioToken}?_action=validate`);
+    const tokenId = user.services.innowatioSSO.token;
+    const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/${tokenId}?_action=validate`);
+    console.log(result);
     if (200 != result.statusCode || false === result.data.valid) {
         throw new Meteor.Error(401, "invalid-token");
     } else {
-        return insertOrUpdateUser(user._id, user.innowatioToken);
+        return insertOrUpdateUser(user.username, tokenId);
     }
 }
 
+//unnecessary for now because userId == username
 function getUserId (tokenId) {
     const result = HTTP.post("https://sso.innowatio.it/openam/json/users?_action=idFromSession", {
         headers: {
@@ -55,31 +54,42 @@ function getUserId (tokenId) {
 }
 
 function insertOrUpdateUser (userId, tokenId) {
-    const user = Meteor.users.findOne({
-        "_id": userId
-    });
     const userInfo = getUserInfo(userId, tokenId);
+    console.log(userInfo);
     if (!userInfo) {
         throw new Meteor.Error(400, 'get-user-info-failed');
     }
-    if (user) {
-        Meteor.users.update({
-            _id: user._id
-        }, {
-            $set: {
-                "innowatioToken": tokenId
-            }
-        });
-    } else {
-        Meteor.users.insert({
-            _id: userId,
-            "innowatioToken": tokenId,
-            "emails": userInfo.mail
-        });
-    }
+    const user = Meteor.users.findOne({
+        "username": userId
+    });
+    const uuid = user ? user._id : inserUser(userInfo);
+    updateUser(uuid, userInfo, tokenId);
     return {
-        userId: userId
+        userId: uuid
     }
+}
+
+function inserUser (userInfo) {
+    return Accounts.createUser({
+        username: userInfo.uid[0]
+    });
+}
+
+function updateUser (userId, userInfo, tokenId) {
+    Meteor.users.update({
+        _id: userId
+    }, {
+        $set: {
+            "emails": [{
+                "address": userInfo.mail[0],
+                "verified": true
+            }],
+            "services.innowatioSSO": {
+                "token": tokenId,
+                "uid": userInfo.uid[0]
+            }
+        }
+    });
 }
 
 function getUserInfo (userId, tokenId) {
@@ -92,19 +102,4 @@ function getUserInfo (userId, tokenId) {
     if (200 === result.statusCode) {
         return result.data;
     }
-}
-
-function setTokenOnInnowatioSSO (tokenId) {
-    const result = HTTP.post("https://sso.innowatio.it/tokenId", {
-        data: {
-            "tokenId": tokenId
-        }
-    });
-    console.log(result);
-    return 200 === result.statusCode;
-}
-
-function getTokenFromInnowatioSSO () {
-    const result = HTTP.get("https://sso.innowatio.it/tokenId");
-    console.log(result);
 }
