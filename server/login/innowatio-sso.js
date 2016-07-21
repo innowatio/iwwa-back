@@ -55,7 +55,6 @@ function getUserId (tokenId) {
 
 function insertOrUpdateUser (userId, tokenId) {
     const userInfo = getUserInfo(userId, tokenId);
-    console.log(userInfo);
     if (!userInfo) {
         throw new Meteor.Error(400, 'get-user-info-failed');
     }
