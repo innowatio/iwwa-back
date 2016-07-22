@@ -4,7 +4,28 @@ Accounts.registerLoginHandler("sso", (options) => {
     if (!options.sso) {
         return undefined;
     }
-    const {username, password} = options.sso;
+    if (options.sso.tokenId) {
+        return loginWithToken(options.sso.tokenId);
+    } else {
+        return loginWithCredentials(options.sso);
+    }
+});
+
+Accounts.validateLoginAttempt(function (attempt) {
+    const tokenId = attempt.user ? attempt.user.services.innowatioSSO.token: null;
+    if (attempt.type === "resume" && checkToken(attempt.user.username, tokenId)) {
+        insertOrUpdateUser(userId, tokenId);
+    }
+    return true;
+});
+
+function loginWithToken (tokenId) {
+    if (checkToken(tokenId)) {
+        return insertOrUpdateUser(getUserId(tokenId), tokenId);
+    }
+}
+
+function loginWithCredentials ({username, password}) {
     const result = HTTP.post("https://sso.innowatio.it/openam/json/authenticate", {
         headers: {
             "X-OpenAM-Username": username,
@@ -18,27 +39,18 @@ Accounts.registerLoginHandler("sso", (options) => {
     } else {
         throw new Meteor.Error(401, "authentication-failed");
     }
-});
+}
 
-Accounts.validateLoginAttempt(function (attempt) {
-    if (attempt.type == "resume") {
-        checkToken(attempt.user);
-    }
-    return true;
-});
-
-function checkToken (user) {
-    const tokenId = user.services.innowatioSSO.token;
+function checkToken (tokenId) {
     const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/${tokenId}?_action=validate`);
-    console.log(result);
-    if (200 != result.statusCode || false === result.data.valid) {
+    if (200 !== result.statusCode || false === result.data.valid) {
+        console.log("Token is invalid");
         throw new Meteor.Error(401, "invalid-token");
     } else {
-        return insertOrUpdateUser(user.username, tokenId);
+        return true;
     }
 }
 
-//unnecessary for now because userId == username
 function getUserId (tokenId) {
     const result = HTTP.post("https://sso.innowatio.it/openam/json/users?_action=idFromSession", {
         headers: {
@@ -47,7 +59,7 @@ function getUserId (tokenId) {
         }
     });
     if (200 === result.statusCode) {
-        return insertOrUpdateUser(result.data.id, tokenId);
+        return result.data.id;
     } else {
         throw new Meteor.Error(400, 'get-userid-failed');
     }
