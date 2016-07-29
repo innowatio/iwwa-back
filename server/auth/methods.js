@@ -12,8 +12,6 @@ Meteor.methods({
         const payload = {
             sub: userId
         };
-        console.log(12345);
-        console.log(secret);
 
         return jwt.sign(payload, secret);
     }
