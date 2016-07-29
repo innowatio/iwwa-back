@@ -1,0 +1,37 @@
+{
+  "type": "questionnaires",
+  "category": "demographics",
+  "categoryNumber": 1,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Quanti dipendenti ha la tua società?",
+      "type": "singleChoice",
+      "options": [
+        "1-10",
+        "11-49",
+        "50 o più"
+      ]
+    },
+    {
+      "id": 2,
+      "text": "In quale categoria opera la tua società?",
+      "type": "singleChoice",
+      "options": [
+        "Vendita all’ingrosso o al dettaglio (negozi, ecc)",
+        "Settore alimentazione (ristoranti, bar, panetterie, fast food, ecc)",
+        "Industria (costruzioni, manifatturiera, agricoltura)",
+        "Uffici (uffici societari, servizi finanziari, pubblica amministrazione, agenzie immobiliari, ecc)",
+        "Altro"
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Qual é il mercato di riferimento?",
+      "type": "singleChoice",
+      "options": [
+        "Finanza", "Consulenza", "Commercio al dettaglio", "Tecnologia", "Costruzioni", "Logistica", "Altro"
+      ]
+    }
+  ]
+}
