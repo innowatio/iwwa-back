@@ -12,7 +12,8 @@ Meteor.publish("users", function () {
             emails: 1,
             siti: 1,
             roles: 1,
-            createdAt: 1
+            createdAt: 1,
+            surveys: 1
         }
     });
 });

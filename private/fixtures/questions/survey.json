@@ -2,6 +2,8 @@
   "type": "survey",
   "category": "pilot",
   "categoryNumber": 99,
+  "title": "Titolo",
+  "description": "Questa è la descrizione del survey",
   "questions": [
     {
       "id": 1,
