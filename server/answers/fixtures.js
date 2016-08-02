@@ -5,6 +5,5 @@ Meteor.startup(() => {
     ) {
         Answers.insert(JSON.parse(Assets.getText("fixtures/answers/building.json")));
         Answers.insert(JSON.parse(Assets.getText("fixtures/answers/demographics.json")));
-        Answers.insert(JSON.parse(Assets.getText("fixtures/answers/heating.json")));
     }
 });
