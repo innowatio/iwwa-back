@@ -1,3 +1,5 @@
+import {getUserInfo} from "../sso-commons";
+
 Meteor.methods({
     sendResetEmail: function (targetUserId) {
         check(targetUserId, String);
@@ -41,5 +43,9 @@ Meteor.methods({
                 }]
             }
         });
+    },
+    getUserInfo: () => {
+        const user = Meteor.user();
+        return user ? getUserInfo(user.services.sso.uid, user.services.sso.token) : {};
     }
 });

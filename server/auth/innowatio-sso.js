@@ -1,4 +1,5 @@
 import {HTTP} from "meteor/http";
+import {getSessionInfo, getUserInfo} from "../sso-commons";
 
 Accounts.registerLoginHandler("sso", (options) => {
     if (!options.sso) {
@@ -73,37 +74,6 @@ function invalidateToken (token) {
     });
 }
 
-function getSessionInfo (token) {
-    logFunc("getSessionInfo");
-    log("token", token);
-    const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/${token}?_action=validate`, {
-        headers: {
-            "Content-Type": "application/json"
-        }
-    });
-    if (200 === result.statusCode) {
-        log("result", result.data);
-        return result.data;
-    } else {
-        throw new Meteor.Error(400, 'get-session-info-failed');
-    }
-}
-
-function getUserInfo (uid, token) {
-    logFunc("getUserInfo");
-    log("uid", uid);
-    log("token", token);
-    const result = HTTP.get(`https://sso.innowatio.it/openam/json/users/${uid}`, {
-        headers: {
-            "iplanetDirectoryPro": token,
-            "Content-Type": "application/json"
-        }
-    });
-    if (200 === result.statusCode) {
-        return result.data;
-    }
-}
-
 function retrieveUpsertUser (uid, token) {
     logFunc("retrieveUpsertUser");
     log("uid", uid);
@@ -129,35 +99,6 @@ function retrieveUpsertUser (uid, token) {
         userId: user._id
     }
 }
-
-// function upsertUser (email, token) {
-//     logFunc("upsertUser");
-//     log("email", email);
-//     log("token", token);
-//     const sessionInfo = getSessionInfo(token);
-//     log("sessionInfo", sessionInfo);
-//     if (!sessionInfo.uid) {
-//         throw new Meteor.Error(400, 'invalid-session-info');
-//     }
-    
-//     Meteor.users.upsert({
-//         _id: sessionInfo.uid
-//     }, {
-//         $set: {
-//             "emails": [{
-//                 "address": email,
-//                 "verified": true
-//             }],
-//             "services.innowatioSSO": {
-//                 "token": token
-//             }
-//         }
-//     });
-    
-//     return {
-//         userId: sessionInfo.uid
-//     }
-// }
 
 function log (name, message) {
     console.log(`============== ${name} =============`);
