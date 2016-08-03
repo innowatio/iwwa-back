@@ -11,7 +11,7 @@ Meteor.publish("questions", function ({type, category}) {
        return null;
     }
     if (_.isEqual(type, "survey")) {
-        const day = moment().valueOf();
+        const day = moment().toISOString();
         const query = {
             type,
             start: {

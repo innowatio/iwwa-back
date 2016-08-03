@@ -1,3 +1,6 @@
+// Localize in Italian
+accountsUIBootstrap3.setLanguage("it");
+
 // Redirect on successful reset
 var redirectUrl;
 Meteor.call("getPasswordResetRedirectUrl", function (error, url) {
