@@ -3,10 +3,10 @@ Meteor.publish("answers", function ({siteId, category, type}) {
     if (!user) {
        return null;
     }
-    if (!_.contains(user.siti, siteId)) {
-       return null;
+    if (_.contains(user.siti, siteId) || _.contains(user.roles, "admin")) {
+       return Answers.find({
+           _id: `${type}-${category}-${siteId}`
+       });
     }
-    return Answers.find({
-        _id: `${type}-${category}-${siteId}`
-    });
+    return null;
 });

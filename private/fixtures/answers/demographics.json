@@ -4,19 +4,11 @@
     "category": "demographics",
     "siteId": "SitoDiTest1",
     "answers": [{
-        "id": 1,
+        "id": 3,
         "timestamp": "2016-07-18T12:35:13.226Z",
-        "answer": "answer 1"
-    }, {
-        "id": 2,
-        "timestamp": "2016-07-18T12:35:13.226Z",
-        "answer": "answer 2"
-    }],
-    "questions": [{
-        "id": 1,
-        "text": "question 1"
-    }, {
-        "id": 2,
-        "text": "question 2"
+        "answer": "Commercio al dettaglio",
+        "question": {
+            "text": "Qual é il mercato di riferimento?"
+        }
     }]
 }
