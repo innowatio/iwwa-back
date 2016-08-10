@@ -13,6 +13,7 @@ at [meteor.com/install](https://www.meteor.com/install).
 ```sh
 git clone https://github.com/innowatio/iwwa-back.git
 cd iwwa-back
+meteor npm install
 meteor
 ```
 
