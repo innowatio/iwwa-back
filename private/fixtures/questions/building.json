@@ -1,0 +1,42 @@
+{
+  "type": "questionnaire",
+  "category": "building",
+  "categoryNumber": 2,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Quanti edifici ha la tua società?",
+      "type": "singleChoice",
+      "options": [
+        "1",
+        "5",
+        "10 o più"
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Avete l'aria condizionata?",
+      "type": "singleChoice",
+      "options": [
+          "Si",
+          "No"
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Avete il giardino?",
+      "type": "singleChoice",
+      "options": [
+        "Si",
+        "No"
+      ]
+    },
+    {
+      "id": 4,
+      "text": "La tua società é operativa durante il fine settimana?",
+      "type": "singleChoice",
+      "options": [
+        "No", "Solo il Sabato", "Sabato e Domenica", "Solo Domenica"
+      ]
+    }]
+}

@@ -1,0 +1,38 @@
+{
+  "type": "survey",
+  "category": "pilot",
+  "categoryNumber": 99,
+  "title": "Titolo",
+  "description": "Questa è la descrizione del survey",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Quante ore in media stai a casa al giorno?",
+      "type": "singleChoice",
+      "options": [
+        "1-12",
+        "12-18",
+        "18-24"
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Quanti abitanti contiene la tua casa?",
+      "type": "singleChoice",
+      "options": [
+          "1",
+          "2",
+          "3 o più"
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Guardate la tele?",
+      "type": "singleChoice",
+      "options": [
+          "Si",
+          "No"
+      ]
+    }
+  ]
+}

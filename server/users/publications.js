@@ -13,7 +13,8 @@ Meteor.publish("users", function () {
             siti: 1,
             roles: 1,
             createdAt: 1,
-            services: 1
+            services: 1,
+            surveys: 1
         }
     });
 });

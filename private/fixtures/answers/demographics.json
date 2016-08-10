@@ -1,0 +1,14 @@
+{
+    "_id": "questionnaire-demographics-SitoDiTest1",
+    "type": "questionnaire",
+    "category": "demographics",
+    "siteId": "SitoDiTest1",
+    "answers": [{
+        "id": 3,
+        "timestamp": "2016-07-18T12:35:13.226Z",
+        "answer": "Commercio al dettaglio",
+        "question": {
+            "text": "Qual é il mercato di riferimento?"
+        }
+    }]
+}
