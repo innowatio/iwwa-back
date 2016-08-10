@@ -101,11 +101,11 @@ function retrieveUpsertUser (uid, token) {
 }
 
 function log (name, message) {
-    console.log(`============== ${name} =============`);
-    console.log(message);
-    console.log(`============= /${name} =============`);
+    // console.log(`============== ${name} =============`);
+    // console.log(message);
+    // console.log(`============= /${name} =============`);
 }
 
 function logFunc (func) {
-    console.log(`=========================== ${func} ===========================`);
+    // console.log(`=========================== ${func} ===========================`);
 }
