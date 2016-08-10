@@ -85,19 +85,15 @@ function retrieveUpsertUser (uid, token) {
             "services.sso": {
                 "token": token,
                 "uid": uid
-            },
-            "profile" : {},
-            "roles" : [ 
-                "admin"
-            ],
+            }
         }
     });
     const user = Meteor.users.findOne({
         "services.sso.uid": uid
-    })
+    });
     return {
         userId: user._id
-    }
+    };
 }
 
 function log (name, message) {
