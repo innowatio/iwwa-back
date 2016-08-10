@@ -63,7 +63,7 @@
       "children": []
     },
     {
-      "id": "IT-BG",
+      "id": "IT-bergamo",
       "type": "weather",
       "description": "Sensore meteo su BG",
       "children": []
@@ -80,6 +80,6 @@
     "ZTHL04",
     "COOV01",
     "COOV02",
-    "IT-BG"
+    "IT-bergamo"
   ]
 }

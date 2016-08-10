@@ -1,8 +1,8 @@
-function getTime (day, monthIndex) {
+function getTime(day, monthIndex) {
     return moment.utc().subtract(monthIndex, "month").date(day).format("YYYY-MM-DD");
 }
 
-function getMeasurementsTypes (sensorId) {
+function getMeasurementsTypes(sensorId) {
     if (sensorId.indexOf("IT-") >= 0) {
         return ["weather-humidity", "weather-cloudeness", "weather-temperature", "weather-id"];
     } else if (sensorId.indexOf("ZTHL") >= 0) {
@@ -14,30 +14,30 @@ function getMeasurementsTypes (sensorId) {
     }
 }
 
-function getUnitOfMeasurement (measurementType) {
+function getUnitOfMeasurement(measurementType) {
     switch (measurementType) {
-    case "activeEnergy":
-        return "kWh";
-    case "reactiveEnergy":
-        return "kVArh";
-    case "maxPower":
-        return "VAr";
-    case "temperature":
-        return "°C";
-    case "humidity":
-        return "%";
-    case "illuminance":
-        return "Lux";
-    case "co2":
-        return "ppm";
-    case "weather-humidity":
-        return "%";
-    case "weather-cloudeness":
-        return "%";
-    case "weather-temperature":
-        return "°C";
-    case "weather-id":
-        return "id";
+        case "activeEnergy":
+            return "kWh";
+        case "reactiveEnergy":
+            return "kVArh";
+        case "maxPower":
+            return "VAr";
+        case "temperature":
+            return "°C";
+        case "humidity":
+            return "%";
+        case "illuminance":
+            return "Lux";
+        case "co2":
+            return "ppm";
+        case "weather-humidity":
+            return "%";
+        case "weather-cloudeness":
+            return "%";
+        case "weather-temperature":
+            return "°C";
+        case "weather-id":
+            return "id";
     }
 }
 
@@ -49,7 +49,7 @@ function getRandomArbitrary(min, max, source) {
     return value.toFixed(2);
 }
 
-function createMeasurementValues (measurements, measurementType, source) {
+function createMeasurementValues(measurements, measurementType, source) {
     // weather-id is an id, so it should be fixed to existent integer values.
     if (measurementType.indexOf("weather-id") >= 0) {
         return measurements[measurementType];
@@ -64,13 +64,13 @@ function createMeasurementValues (measurements, measurementType, source) {
     return values.join(",");
 }
 
-function createMeasurementTimes (measurements, measurementType, date) {
+function createMeasurementTimes(measurements, measurementType, date) {
     var dayStart = moment.utc(date).valueOf();
     var dayEnd = moment.utc(date).endOf('day').valueOf();
     if (measurementType.indexOf("weather") >= 0) {
         var timesWeather = [];
-        for (var i=1; i<=12; i++) {
-            timesWeather.push(moment(dayStart).add({hours: i * 2}).valueOf());
+        for (var i = 1; i <= 12; i++) {
+            timesWeather.push(moment(dayStart).add({ hours: i * 2 }).valueOf());
         }
         return timesWeather.join(",");
     }
@@ -85,8 +85,8 @@ function insertDataFromJSON(path, sensorsIds, source) {
     const numberOfMonth = 2
     const data = JSON.parse(Assets.getText(path));
     sensorsIds.map(sensorId => {
-        for (var monthIdx=0; monthIdx<numberOfMonth; monthIdx++) {
-            for (var dayOfMonth=1; dayOfMonth<=moment().subtract(monthIdx, "month").daysInMonth(); dayOfMonth++) {
+        for (var monthIdx = 0; monthIdx < numberOfMonth; monthIdx++) {
+            for (var dayOfMonth = 1; dayOfMonth <= moment().subtract(monthIdx, "month").daysInMonth(); dayOfMonth++) {
                 const date = getTime(dayOfMonth, monthIdx);
                 const measurementsTypes = getMeasurementsTypes(sensorId);
                 measurementsTypes.forEach(measurementType => {
@@ -125,10 +125,10 @@ function insertDataFromJSON(path, sensorsIds, source) {
 *   }
 */
 
-function getAlarms (sensorId) {
+function getAlarms(sensorId) {
     const alarms = [];
-    for (i=0; i<28; i++) {
-        const date = parseInt(moment().startOf("month").subtract(1, "month").add({day: i, hour: 12}).valueOf())
+    for (i = 0; i < 28; i++) {
+        const date = parseInt(moment().startOf("month").subtract(1, "month").add({ day: i, hour: 12 }).valueOf())
         const alarm = {
             _id: `${sensorId}-${date}`,
             date
@@ -157,6 +157,15 @@ Meteor.startup(() => {
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfSensorIdInSiteTest2, source);
             insertDataFromJSON(`${path}/test-sites-value.json`, listOfWeatherSensor, source);
         });
+
+        // FINTECO DATA FIXTURES
+        const fintecoSensors = [
+            "SitoDiTest1-daily-avg",
+            "SitoDiTest1-peers-avg",
+            "SitoDiTest2-daily-avg",
+            "SitoDiTest2-peers-avg"
+        ];
+        insertDataFromJSON(`${path}/test-sites-value.json`, fintecoSensors, ["reading"]);
 
         // FIXTURES FOR ALARMS
         ["SitoDiTest1", "SitoDiTest2", "IT001", "ANZ01", "IT002", "ANZ02", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06"].map(sensorId => {

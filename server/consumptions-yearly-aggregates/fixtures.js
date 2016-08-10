@@ -14,10 +14,13 @@
 function insertDataFromJSON () {
     const TYPES = ["activeEnergy"];
     const SOURCES = ["reading"];
-    const SITES = ["SitoDiTest1", "SitoDiTest2"]
+    const SITES = ["SitoDiTest1", "SitoDiTest2"];
+    const SITES_APP = SITES.reduce((prev, current) => {
+        return [...prev, current, `${current}-daily-avg`, `${current}-peers-avg`];
+    }, [])
     const YEARS_RANGE = 2;
 
-    for (var sensorId in SITES) {
+    for (var sensorId in SITES_APP) {
         for (var year = 0; year < YEARS_RANGE; year++) {
             var values = [];
             const actualYear = moment().subtract(year, "year");
@@ -26,8 +29,7 @@ function insertDataFromJSON () {
                 const momentDay = moment(`${actualYear}-${dayIndex}`, "YYYY-DDD");
                 values[dayIndex -1] = parseFloat(generateRandomDailyConsumption(momentDay).toFixed(2));
             }
-
-            datas = buildYearlyConsumption(SITES[sensorId], actualYear, values);
+            datas = buildYearlyConsumption(SITES_APP[sensorId], actualYear, values);
             ConsumptionsYearlyAggregates.insert(datas);
         }
     }
