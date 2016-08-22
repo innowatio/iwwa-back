@@ -31,11 +31,12 @@ Accounts.validateLoginAttempt((attempt) => {
     return true;
 });
 
-Accounts.onLogout((logout) => {
+Accounts.onLogout((session) => {
     logFunc("onLogout");
-    log("logout", logout);
-    // FIXME: https://github.com/meteor/meteor/pull/7433
-    // invalidateToken(token);
+    log("session", session.user.services);
+    if (session && session.user && session.user.services && session.user.services.sso) {
+        invalidateToken(session.user.services.sso.token);
+    }
 });
 
 function loginWithToken (token) {
