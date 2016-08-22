@@ -4,6 +4,7 @@
   "description": "This is the repo of the iwwa project backend.",
   "main": "index.js",
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "jsonwebtoken": "^7.1.7"
   },
   "devDependencies": {},
