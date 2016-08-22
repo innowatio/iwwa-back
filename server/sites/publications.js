@@ -6,12 +6,12 @@ Meteor.publish("sites", function () {
     if (_.contains(user.roles, "admin")) {
        return Sites.find({});
     }
-    if (!user.siti) {
+    if (!user.sites) {
        return null;
     }
     return Sites.find({
         _id: {
-            $in: user.siti
+            $in: user.sites
         }
     });
 });
