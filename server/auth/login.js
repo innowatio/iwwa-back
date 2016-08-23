@@ -33,7 +33,7 @@ Accounts.validateLoginAttempt((attempt) => {
 
 Accounts.onLogout((session) => {
     logFunc("onLogout");
-    log("session", session.user.services);
+    log("session", session);
     if (session && session.user && session.user.services && session.user.services.sso) {
         invalidateToken(session.user.services.sso.token);
     }
@@ -68,11 +68,14 @@ function loginWithCredentials ({username, password}) {
 }
 
 function invalidateToken (token) {
-    const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/${token}?_action=logout`, {
+    log("token", token);
+    const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/?_action=logout`, {
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "iplanetDirectoryPro": token
         }
     });
+    log("result", result);
 }
 
 function retrieveUpsertUser (uid, token) {
