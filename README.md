@@ -17,6 +17,16 @@ meteor npm install
 meteor
 ```
 
+## Production environment setup
+
+You should set the follow environment variables:
+
+ENVIRONMENT="production"
+PASSWORD_RESET_REDIRECT_URL
+MAIL_URL
+MONGO_URL
+PORT
+ROOT_URL
 
 ## Innowatio SSO integration flow
 
@@ -29,7 +39,7 @@ Some explanation about the integration with Innowatio SSO system considering bot
 ```javascript
 Asteroid.login({
     sso: {
-        tokenId: returnedTokenId 
+        tokenId: returnedTokenId
     }
 });
 ```
