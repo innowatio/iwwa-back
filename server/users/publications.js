@@ -10,7 +10,8 @@ Meteor.publish("users", function () {
         fields: {
             profile: 1,
             emails: 1,
-            siti: 1,
+            sites: 1,
+            sensors: 1,
             roles: 1,
             createdAt: 1,
             services: 1,
