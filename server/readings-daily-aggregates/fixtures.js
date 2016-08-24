@@ -148,7 +148,7 @@ Meteor.startup(() => {
         const listOfSensorIdInSiteTest2 = ["SitoDiTest2", "IT003", "ANZ03", "IT004", "ANZ04", "ANZ05", "ANZ06",
             "ZTHL05", "ZTHL06", "ZTHL07", "ZTHL08", "ZTHL09", "ZTHL10", "ZTHL11",
             "COOV03", "COOV04", "COOV05"];
-        const listOfWeatherSensor = ["IT-CO", "IT-SO", "IT-MI", "IT-BG"];
+        const listOfWeatherSensor = ["IT-como", "IT-sondrio", "IT-milano", "IT-bergamo"];
         const allowedSource = ["reading", "forecast"];
 
         // FIXTURES FOR CHARTS
