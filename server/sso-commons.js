@@ -22,3 +22,7 @@ export function getUserInfo (uid, token) {
         return result.data;
     }
 }
+
+export function isProduction() {
+    return process.env.ENVIRONMENT === "production";
+}
