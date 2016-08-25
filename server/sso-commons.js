@@ -23,6 +23,6 @@ export function getUserInfo (uid, token) {
     }
 }
 
-export function isProduction() {
-    return process.env.ENVIRONMENT === "production";
+export function isSingleSignOnEnabled() {
+    return !process.env.SKIP_SSO;
 }

@@ -1,5 +1,5 @@
 import {HTTP} from "meteor/http";
-import {getSessionInfo, isProduction} from "../sso-commons";
+import {getSessionInfo, isSingleSignOnEnabled} from "../sso-commons";
 
 Accounts.registerLoginHandler("sso", (options) => {
     if (!options.sso) {
@@ -7,7 +7,7 @@ Accounts.registerLoginHandler("sso", (options) => {
     }
     logFunc("registerLoginHandler");
     log("options", options);
-    return isProduction() ? loginWithCredentials(options.sso) : retrieveUpsertUser(options.sso.username);
+    return isSingleSignOnEnabled() ? loginWithCredentials(options.sso) : retrieveUpsertUser(options.sso.username);
 });
 
 Accounts.registerLoginHandler("token", (options) => {
@@ -26,7 +26,7 @@ Accounts.validateLoginAttempt((attempt) => {
         if (!attempt.user || !attempt.user.services || !attempt.user.services.sso) {
             throw new Meteor.Error(400, "invalid-db-user");
         }
-        return isProduction() ? loginWithToken(attempt.user.services.sso.token) : true;
+        return isSingleSignOnEnabled() ? loginWithToken(attempt.user.services.sso.token) : true;
     }
     return true;
 });
