@@ -21,13 +21,14 @@ meteor
 
 You should set the follow environment variables:
 
+```sh
 ENVIRONMENT="production"
 PASSWORD_RESET_REDIRECT_URL
 MAIL_URL
 MONGO_URL
 PORT
 ROOT_URL
-
+```
 ## Innowatio SSO integration flow
 
 Some explanation about the integration with Innowatio SSO system considering both server and client side.
@@ -68,3 +69,4 @@ Asteroid.login({
 ##### Other client-side facts
 - Whenever a user is authenticated with meteor, user's Innowatio token is set also in the SSO system (a specific domain).
 - Whenever a user manually logout from application, besides meteor logout, user's Innowatio token is also removed from SSO system.
+- In development environment set `SKIP_SSO` env var to skip the single sign-on login.
