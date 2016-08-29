@@ -51,31 +51,38 @@ function loginWithToken (token) {
 
 function loginWithCredentials ({username, password}) {
     logFunc("loginWithCredentials");
-    const result = HTTP.post("https://sso.innowatio.it/openam/json/authenticate", {
-        headers: {
-            "X-OpenAM-Username": username,
-            "X-OpenAM-Password": password,
-            "Content-Type": "application/json"
+    try {
+        const result = HTTP.post("https://sso.innowatio.it/openam/json/authenticate", {
+            headers: {
+                "X-OpenAM-Username": username,
+                "X-OpenAM-Password": password,
+                "Content-Type": "application/json"
+            }
+        });
+        const {tokenId} = result.data;
+        if (200 != result.statusCode || !tokenId) {
+            throw new Meteor.Error(500, "api-call-failed");
         }
-    });
-    const {tokenId} = result.data;
-    if (200 != result.statusCode || !tokenId) {
-        throw new Meteor.Error(401, "authentication-failed");
-    } else {
         const sessionInfo = getSessionInfo(tokenId);
         return retrieveUpsertUser(sessionInfo.uid, tokenId);
+    } catch (error) {
+        throw new Meteor.Error(401, "authentication-failed-or-network");
     }
 }
 
 function invalidateToken (token) {
     log("token", token);
-    const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/?_action=logout`, {
-        headers: {
-            "Content-Type": "application/json",
-            "iplanetDirectoryPro": token
-        }
-    });
-    log("result", result);
+    try {
+        const result = HTTP.post(`https://sso.innowatio.it/openam/json/sessions/?_action=logout`, {
+            headers: {
+                "Content-Type": "application/json",
+                "iplanetDirectoryPro": token
+            }
+        });
+        log("result", result);
+    } catch (error) {
+        throw new Meteor.Error(500, "token-invalidation-failed");
+    }
 }
 
 function retrieveUpsertUser (uid, token) {
