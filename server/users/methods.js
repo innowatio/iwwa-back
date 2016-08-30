@@ -44,6 +44,22 @@ Meteor.methods({
             }
         });
     },
+    saveFCMToken: function (token, device) {
+        check(token, String);
+        check(device, Object);
+        var userId = Meteor.userId();
+        if (!userId) {
+            throw new Meteor.Error("Login required");
+        }
+        Meteor.users.update({_id: userId}, {
+            $set: {
+                "services.fcm": {
+                    device,
+                    token
+                }
+            }
+        });
+    },
     getUserInfo: () => {
         const user = Meteor.user();
         return user ? getUserInfo(user.services.sso.uid, user.services.sso.token) : {};
