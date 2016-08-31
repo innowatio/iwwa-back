@@ -13,8 +13,9 @@ Meteor.startup(() => {
                 const userNotification = {
                     ...notification,
                     type,
+                    userId,
+                    date: moment().format("DD/MM/YY"),
                     readed: Random.fraction() < 0.5 ? true : false,
-                    userId
                 }
                 Notifications.insert(userNotification);
             }

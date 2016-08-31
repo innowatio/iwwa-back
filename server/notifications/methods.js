@@ -1,6 +1,5 @@
 Meteor.methods({
     getUnreadNotifications: () => {
-        console.log("getUnreadNotifications");
         var userId = Meteor.userId();
         if (!userId) {
             throw new Meteor.Error("Login required");
@@ -11,6 +10,14 @@ Meteor.methods({
         }).fetch().length;
     },
     setReadedNotifications: () => {
-        
+        var userId = Meteor.userId();
+        Notifications.update({
+            userId: userId,
+            readed: false
+        }, {
+            $set: {
+                readed: true
+            }
+        });
     }
 });
