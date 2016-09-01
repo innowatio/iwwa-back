@@ -1,0 +1,9 @@
+{
+    "type": "default",
+    "title": "Titolo della notifica",
+    "message": "Messaggio della notifica",
+    "data": {
+        "data1": "data"
+    },
+    "applications": ["com.innowatio.iwapp"]
+}
