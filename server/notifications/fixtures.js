@@ -2,7 +2,8 @@ import {Random} from "meteor/random";
 
 Meteor.startup(() => {
     if (
-        process.env.ENVIRONMENT !== "production"
+        process.env.ENVIRONMENT !== "production" &&
+        Notifications.find().count() === 0
     ) {
         const users = Meteor.users.find({}).fetch();
         users.map(user => {
