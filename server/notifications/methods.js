@@ -6,7 +6,7 @@ Meteor.methods({
         }
         return Notifications.find({
             userId: userId,
-            readed: false
+            readed: {$ne: true}
         }).fetch();
     }
 });
