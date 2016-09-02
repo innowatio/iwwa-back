@@ -55,7 +55,8 @@ Meteor.methods({
             $set: {
                 "services.fcm": {
                     device,
-                    token
+                    token,
+                    timestamp: new Date().toISOString()
                 }
             }
         });
