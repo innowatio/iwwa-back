@@ -1,5 +1,7 @@
 Meteor.publish("notifications", function () {
-    return Notifications.find({
-        userId: this.userId
-    }, {sort: {date: 1}});
+    const userId = this.userId;
+    if (!userId) {
+        return null;
+    }
+    return Notifications.find({userId});
 });
