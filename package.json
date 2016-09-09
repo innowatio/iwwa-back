@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bcrypt": "^0.8.7",
+    "bunyan": "^1.8.1",
     "jsonwebtoken": "^7.1.7"
   },
   "devDependencies": {},
