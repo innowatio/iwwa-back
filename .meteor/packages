@@ -16,7 +16,7 @@ mondora:asteroid
 momentjs:moment
 meteor-base@1.0.4
 mobile-experience@1.0.4
-mongo@1.1.11
+mongo@1.1.12
 blaze-html-templates@1.0.4
 session@1.1.6
 jquery@1.11.9
@@ -35,4 +35,4 @@ standard-minifier-js@1.2.0
 http@1.2.9
 stylus@2.513.5
 ian:accounts-ui-bootstrap-3
-shell-server
+shell-server@0.2.1
