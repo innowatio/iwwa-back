@@ -6,7 +6,7 @@ import Elasticsearch from "bunyan-elasticsearch";
 var esStream = new Elasticsearch({
     indexPattern: "[meteor-auth-]YYYY.MM.DD",
     type: "logs",
-    host: "search-lk-architecture-hxd7wesuxmlhxnf74rxpe5m6v4.eu-west-1.es.amazonaws.com"
+    host: process.env.ELASTIC_SEARCH_HOST
 });
 
 esStream.on("error", function (err) {
