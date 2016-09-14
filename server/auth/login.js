@@ -16,9 +16,7 @@ esStream.on("error", function (err) {
 const log = bunyan.createLogger({
     name: "meteor-auth",
     streams: [{
-        stream: esStream
-    }, {
-        stream: process.stdout
+        stream: process.env.ENVIRONMENT === "production" ? esStream : process.stdout
     }]
 });
 
