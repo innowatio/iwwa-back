@@ -3,7 +3,7 @@ Meteor.publish("sites", function () {
     if (!user) {
        return null;
     }
-    if (_.contains(user.roles, "admin")) {
+    if (_.contains(user.groups, "admin")) {
        return Sites.find({});
     }
     if (!user.sites) {

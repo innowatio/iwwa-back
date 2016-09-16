@@ -17,7 +17,7 @@ function insertAdmin() {
     Meteor.users.insert({
         _id: "admin",
         profile: {},
-        roles: [
+        groups: [
             "admin"
         ]
     });

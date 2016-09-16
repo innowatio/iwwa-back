@@ -1,12 +1,5 @@
 Meteor.startup(function () {
-    [
-        "admin",
-        "Amministratore di Sistema",
-        "Gestore di Sistema",
-        "Energy Manager",
-        "Manager",
-        "yousave"
-    ].forEach(function (roleName) {
+    JSON.parse(Assets.getText("fixtures/roles/roles.json")).forEach(function (roleName) {
         var role = {
             name: roleName
         };
