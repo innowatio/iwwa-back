@@ -4,7 +4,11 @@ Meteor.publish("sites", function () {
        return null;
     }
     if (_.contains(user.roles, "admin")) {
-       return Sites.find({});
+       return Sites.find({
+           isDeleted: {
+               $ne: true
+           }
+       });
     }
     if (!user.sites) {
        return null;
@@ -12,6 +16,9 @@ Meteor.publish("sites", function () {
     return Sites.find({
         _id: {
             $in: user.sites
+        },
+        isDeleted: {
+            $ne: true
         }
     });
 });
