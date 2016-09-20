@@ -78,6 +78,7 @@ function loginWithCredentials ({username, password}) {
                 "Content-Type": "application/json"
             }
         });
+        log.info({result}, "authenticate sso credentials result");
         const {tokenId} = result.data;
         if (200 != result.statusCode || !tokenId) {
             throw new Meteor.Error(500, "api-call-failed");
