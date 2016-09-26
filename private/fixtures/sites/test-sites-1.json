@@ -32,10 +32,6 @@
           "children": []
         },
         {
-          "id": "ZTHL02",
-          "children": []
-        },
-        {
           "id": "ZTHL03",
           "children": []
         },
@@ -45,10 +41,6 @@
         },
         {
           "id": "COOV01",
-          "children": []
-        },
-        {
-          "id": "COOV02",
           "children": []
         },
         {
@@ -62,11 +54,9 @@
         "IT002",
         "ANZ02",
         "ZTHL01",
-        "ZTHL02",
         "ZTHL03",
         "ZTHL04",
         "COOV01",
-        "COOV02",
         "IT-bergamo"
       ]
 }
