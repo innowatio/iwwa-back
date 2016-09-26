@@ -1,14 +1,54 @@
 [{
     "_id" : "IT001",
-    "description" : "Pod IT001"
+    "name" : "Sensore IT001",
+    "type" : "thl",
+    "details" : {
+        "sensorModel" : "ZSES"
+    },
+    "description" : "Pod IT001 (Esempio Sensore virutale) l_desc"
+    "shortDescription" : "Pod IT001 s_desc",
+    "sampleDeltaInMS" : 30000,
+    "unitOfMeasurement": "°C",
+    "virtual" : true,
+    "formulas": [{
+        "formula": "THL01+THL02/2",
+        "start": "1970-01-01T00:00:00Z",
+        "end": "2100-01-01T00:00:00.000Z",
+        "variables": ["THL01", "THL02"],
+        "measurementType": "temperature"
+    }],
+    "tags": ["temperatura", "ambientale", "media"],
+    "primaryTags": ["mapello", "vodafone"],
+    "userId": "",
+    "parentSensorId": ""
 },
 {
     "_id" : "IT002",
-    "description" : "Pod IT002"
+    "name": "Sensore IT002"
+    "type": "thl",
+    "details": {
+        "sensorModel": "ZSES"
+    },
+    "description": "Sensori ambientali dell'area destra",
+    "shortDescription": "Temperatura area destra",
+    "unitOfMeasurement": "°C",
+    "virtual": false,
+    "tags": ["temperatura", "ambientale"],
+    "primaryTags": ["mapello"],
+    "userId": "",
+    "parentSensorId": ""
 },
 {
     "_id" : "IT003",
-    "description" : "Pod IT003"
+    "name" : "maxPower casa",
+    "type" : "maxPower",
+    "description" : "Max power Tiziano Zani",
+    "shortDescription" : "maxPower Zani",
+    "unitOfMeasurement" : "kWh",
+    "virtual" : false,
+    "parentSensorId": "76797513-0677-4dd6-9e8a-da8f3c9e240b",
+    "tags": ["potenza", "maxPower", "massima"],
+    "primaryTags": ["Domestico"]
 },
 {
     "_id" : "IT004",
