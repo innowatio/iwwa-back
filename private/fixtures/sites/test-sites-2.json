@@ -1,130 +1,69 @@
 {
-    "_id": "SitoDiTest2",
-    "name": "Sito di Test 2",
-    "sensors": [
-        {
-            "id": "IT003",
-            "type": "pod",
-            "description": "Luci e utenze varie",
-            "children": [
-                {
-                    "id": "ANZ03",
-                    "type": "pod-anz",
-                    "description": "Luci e utenze varie"
-                }
-            ]
-        },
-        {
-            "id": "IT004",
-            "type": "pod",
-            "description": "Climatizzazione Vendita e Magazzino",
-            "children": [
-                {
-                    "id": "ANZ04",
-                    "type": "pod-anz",
-                    "description": "Climatizzazione Vendita e Magazzino",
-                    "children": [
-                        {
-                            "id": "ANZ05",
-                            "type": "anz",
-                            "description": "Luci cantina",
-                            "children": [
-                                {
-                                    "id": "ANZ06",
-                                    "type": "anz",
-                                    "description": "Luci cantina vini"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "ZTHL05",
-            "type": "thl",
-            "description": "Sensore ambientale 1 area destra",
-            "children": [
-                {
-                    "id": "ZTHL06",
-                    "type": "thl",
-                    "description": "Sensore ambientale 5 area destra",
-                    "children": [
-                        {
-                            "id": "ZTHL07",
-                            "type": "thl",
-                            "description": "Sensore ambientale 5 area destra"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "ZTHL08",
-            "type": "thl",
-            "description": "Sensore ambientale 2 area destra",
-            "children": [
-                {
-                    "id": "ZTHL09",
-                    "type": "thl",
-                    "description": "Sensore ambientale 6 area destra"
-                }
-            ]
-        },
-        {
-            "id": "ZTHL10",
-            "type": "thl",
-            "description": "Sensore ambientale 3 area sinistra",
-            "children": []
-        },
-        {
-            "id": "ZTHL11",
-            "type": "thl",
-            "description": "Sensore ambientale 4 area sinistra",
-            "children": []
-        },
-        {
-            "id": "COOV03",
-            "type": "co2",
-            "description": "Sonda co2 su HVAC01",
-            "children": [
-                {
-                    "id": "COOV04",
-                    "type": "co2",
-                    "description": "Sonda co2 su HVAC03"
-                }
-            ]
-        },
-        {
-            "id": "COOV05",
-            "type": "co2",
-            "description": "Sonda co2 su HVAC02",
-            "children": []
-        },
-        {
-            "id": "IT-bergamo",
-            "type": "weather",
-            "description": "Sensore meteo su BG",
-            "children": []
-        }
-    ],
-    "sensorsIds": [
-        "IT003",
-        "ANZ03",
-        "IT004",
-        "ANZ04",
-        "ANZ05",
-        "ANZ06",
-        "ZTHL05",
-        "ZTHL06",
-        "ZTHL07",
-        "ZTHL08",
-        "ZTHL09",
-        "ZTHL10",
-        "ZTHL11",
-        "COOV03",
-        "COOV04",
-        "COOV05",
-        "IT-bergamo"
-    ]
+	"_id": "SitoDiTest2",
+	"name": "Sito di Test 2",
+	"description": "",
+	"shortDescription": "",
+	"country": "IT",
+	"province": "bergamo",
+	"address": "24056, Via Cascina san cosmo 1, Fontanella (BG)",
+	"sensors": [{
+		"id": "IT003"
+	}, {
+		"id": "IT004",
+		"children": [{
+			"id": "ANZ04",
+			"children": [{
+				"id": "ANZ05",
+				"children": [{
+					"id": "ANZ06"
+				}]
+			}]
+		}]
+	}, {
+		"id": "ZTHL05",
+		"children": [{
+			"id": "ZTHL06",
+			"children": [{
+				"id": "ZTHL07"
+			}]
+		}]
+	}, {
+		"id": "ZTHL02",
+		"children": []
+	}, {
+		"id": "ZTHL10",
+		"children": []
+	}, {
+		"id": "ZTHL11",
+		"children": []
+	}, {
+		"id": "COOV03",
+		"children": [{
+			"id": "COOV04"
+		}]
+	}, {
+		"id": "COOV05",
+		"children": []
+	}, {
+		"id": "IT-bergamo",
+		"children": []
+	}],
+	"sensorsIds": [
+		"IT003",
+		"IT004",
+		"ANZ04",
+		"ANZ05",
+		"ANZ06",
+		"ZTHL05",
+		"ZTHL06",
+		"ZTHL07",
+		"ZTHL08",
+		"ZTHL02",
+		"ZTHL10",
+		"ZTHL11",
+		"COOV02",
+		"COOV04",
+		"COOV05",
+		"IT-bergamo"
+	]
 }

@@ -1,85 +1,62 @@
 {
-  "_id": "SitoDiTest1",
-  "name": "Sito di Test 1",
-  "sensors": [
-    {
-      "id": "IT001",
-      "type": "pod",
-      "description": "Luci e utenze varie",
-      "children": [
+    "_id": "SitoDiTest1",
+    "name": "Sito di Test 1",
+    "description" : "Descrizione sito di test 1",
+    "shortDescription" : "sito di test 1",
+    "employees" : 20,
+    "businessType": "mall",
+    "areaInMq" : 200,
+    "country" : "IT",
+    "city" : "city",
+    "province" : "bergamo",
+    "address" : "24056, Via Cascina san cosmo 1, Fontanella (BG)",
+    "sensors": [
         {
-          "id": "ANZ01",
-          "type": "pod-anz",
-          "description": "Luci e utenze varie"
-        }
-      ]
-    },
-    {
-      "id": "IT002",
-      "type": "pod",
-      "description": "Climatizzazione Vendita e Magazzino",
-      "children": [
+            "id": "IT001",
+            "children": [
+            {
+                "id": "ANZ01"
+            }
+            ]
+        },
         {
-          "id": "ANZ02",
-          "type": "pod-anz",
-          "description": "Climatizzazione Vendita e Magazzino"
+            "id": "IT002",
+            "children": [
+            {
+                "id": "ANZ02"
+            }
+          ]
+        },
+        {
+          "id": "ZTHL01",
+          "children": []
+        },
+        {
+          "id": "ZTHL03",
+          "children": []
+        },
+        {
+          "id": "ZTHL04",
+          "children": []
+        },
+        {
+          "id": "COOV01",
+          "children": []
+        },
+        {
+          "id": "IT-bergamo",
+          "children": []
         }
+      ],
+      "sensorsIds": [
+        "IT001",
+        "ANZ01",
+        "IT002",
+        "ANZ02",
+        "ZTHL01",
+        "ZTHL03",
+        "ZTHL04",
+        "COOV01",
+        "IT-bergamo"
       ]
-    },
-    {
-      "id": "ZTHL01",
-      "type": "thl",
-      "description": "Sensore ambientale 1 area destra",
-      "children": []
-    },
-    {
-      "id": "ZTHL02",
-      "type": "thl",
-      "description": "Sensore ambientale 2 area destra",
-      "children": []
-    },
-    {
-      "id": "ZTHL03",
-      "type": "thl",
-      "description": "Sensore ambientale 3 area sinistra",
-      "children": []
-    },
-    {
-      "id": "ZTHL04",
-      "type": "thl",
-      "description": "Sensore ambientale 4 area sinistra",
-      "children": []
-    },
-    {
-      "id": "COOV01",
-      "type": "co2",
-      "description": "Sonda co2 su HVAC01",
-      "children": []
-    },
-    {
-      "id": "COOV02",
-      "type": "co2",
-      "description": "Sonda co2 su HVAC02",
-      "children": []
-    },
-    {
-      "id": "IT-bergamo",
-      "type": "weather",
-      "description": "Sensore meteo su BG",
-      "children": []
-    }
-  ],
-  "sensorsIds": [
-    "IT001",
-    "ANZ01",
-    "IT002",
-    "ANZ02",
-    "ZTHL01",
-    "ZTHL02",
-    "ZTHL03",
-    "ZTHL04",
-    "COOV01",
-    "COOV02",
-    "IT-bergamo"
-  ]
 }

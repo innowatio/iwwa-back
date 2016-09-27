@@ -1,5 +1,5 @@
 [{
-    "_id" : "IT001-2016-06-23-reading-activeEnergy",
+    "_id" : "IT001-reading-activeEnergy",
     "day" : "2016-06-22",
     "measurementType" : "activeEnergy",
     "measurementValue" : 34.88,
@@ -7,7 +7,7 @@
     "unitOfMeasurement" : "kWh",
     "sensorId" : "IT001"
 }, {
-    "_id" : "IT001-2016-06-23-reading-reactiveEnergy",
+    "_id" : "IT001-reading-reactiveEnergy",
     "day" : "2016-06-22",
     "measurementType" : "reactiveEnergy",
     "measurementValue" : 17.18,
@@ -15,7 +15,7 @@
     "unitOfMeasurement" : "kVArh",
     "sensorId" : "IT001"
 }, {
-    "_id" : "IT001-2016-06-23-reading-maxPower",
+    "_id" : "IT001-reading-maxPower",
     "day" : "2016-06-22",
     "measurementType" : "maxPower",
     "measurementValue" : 165,
@@ -23,7 +23,7 @@
     "unitOfMeasurement" : "VAr",
     "sensorId" : "IT001"
 }, {
-    "_id" : "IT002-2016-06-23-reading-activeEnergy",
+    "_id" : "IT002-reading-activeEnergy",
     "day" : "2016-06-22",
     "measurementType" : "activeEnergy",
     "measurementValue" : 54.88,
@@ -31,7 +31,7 @@
     "unitOfMeasurement" : "kWh",
     "sensorId" : "IT002"
 }, {
-    "_id" : "IT002-2016-06-23-reading-reactiveEnergy",
+    "_id" : "IT002-reading-reactiveEnergy",
     "day" : "2016-06-22",
     "measurementType" : "reactiveEnergy",
     "measurementValue" : 52.18,
@@ -39,7 +39,7 @@
     "unitOfMeasurement" : "kVArh",
     "sensorId" : "IT002"
 }, {
-    "_id" : "IT002-2016-06-23-reading-maxPower",
+    "_id" : "IT002-reading-maxPower",
     "day" : "2016-06-22",
     "measurementType" : "maxPower",
     "measurementValue" : 45,
@@ -47,7 +47,55 @@
     "unitOfMeasurement" : "VAr",
     "sensorId" : "IT002"
 }, {
-    "_id" : "ANZ01-2016-06-23-reading-activeEnergy",
+    "_id" : "IT003-reading-activeEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "activeEnergy",
+    "measurementValue" : 34.88,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kWh",
+    "sensorId" : "IT003"
+}, {
+    "_id" : "IT003-reading-reactiveEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "reactiveEnergy",
+    "measurementValue" : 17.18,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kVArh",
+    "sensorId" : "IT003"
+}, {
+    "_id" : "IT003-reading-maxPower",
+    "day" : "2016-06-22",
+    "measurementType" : "maxPower",
+    "measurementValue" : 165,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "VAr",
+    "sensorId" : "IT003"
+}, {
+    "_id" : "IT004-reading-activeEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "activeEnergy",
+    "measurementValue" : 54.88,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kWh",
+    "sensorId" : "IT004"
+}, {
+    "_id" : "IT004-reading-reactiveEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "reactiveEnergy",
+    "measurementValue" : 52.18,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kVArh",
+    "sensorId" : "IT004"
+}, {
+    "_id" : "IT004-reading-maxPower",
+    "day" : "2016-06-22",
+    "measurementType" : "maxPower",
+    "measurementValue" : 45,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "VAr",
+    "sensorId" : "IT004"
+}, {
+    "_id" : "ANZ01-reading-activeEnergy",
     "day" : "2016-06-22",
     "measurementType" : "activeEnergy",
     "measurementValue" : 16.88,
@@ -55,7 +103,7 @@
     "unitOfMeasurement" : "kWh",
     "sensorId" : "ANZ01"
 }, {
-    "_id" : "ANZ01-2016-06-23-reading-reactiveEnergy",
+    "_id" : "ANZ01-reading-reactiveEnergy",
     "day" : "2016-06-22",
     "measurementType" : "reactiveEnergy",
     "measurementValue" : 27.18,
@@ -63,7 +111,7 @@
     "unitOfMeasurement" : "kVArh",
     "sensorId" : "ANZ01"
 }, {
-    "_id" : "ANZ01-2016-06-23-reading-maxPower",
+    "_id" : "ANZ01-reading-maxPower",
     "day" : "2016-06-22",
     "measurementType" : "maxPower",
     "measurementValue" : 180,
@@ -71,7 +119,7 @@
     "unitOfMeasurement" : "VAr",
     "sensorId" : "ANZ01"
 }, {
-    "_id" : "ANZ02-2016-06-23-reading-activeEnergy",
+    "_id" : "ANZ02-reading-activeEnergy",
     "day" : "2016-06-22",
     "measurementType" : "activeEnergy",
     "measurementValue" : 37.88,
@@ -79,7 +127,7 @@
     "unitOfMeasurement" : "kWh",
     "sensorId" : "ANZ02"
 }, {
-    "_id" : "ANZ02-2016-06-23-reading-reactiveEnergy",
+    "_id" : "ANZ02-reading-reactiveEnergy",
     "day" : "2016-06-22",
     "measurementType" : "reactiveEnergy",
     "measurementValue" : -7.12,
@@ -87,7 +135,7 @@
     "unitOfMeasurement" : "kVArh",
     "sensorId" : "ANZ02"
 }, {
-    "_id" : "ANZ02-2016-06-23-reading-maxPower",
+    "_id" : "ANZ02-reading-maxPower",
     "day" : "2016-06-22",
     "measurementType" : "maxPower",
     "measurementValue" : 0,
@@ -95,7 +143,7 @@
     "unitOfMeasurement" : "VAr",
     "sensorId" : "ANZ02"
 }, {
-    "_id" : "ZTHL01-2016-06-23-reading-temperature",
+    "_id" : "ZTHL01-reading-temperature",
     "day" : "2016-06-22",
     "measurementType" : "temperature",
     "measurementValue" : 19.5,
@@ -103,7 +151,7 @@
     "unitOfMeasurement" : "°C",
     "sensorId" : "ZTHL01"
 }, {
-    "_id" : "ZTHL01-2016-06-23-reading-humidity",
+    "_id" : "ZTHL01-reading-humidity",
     "day" : "2016-06-22",
     "measurementType" : "humidity",
     "measurementValue" : 37,
@@ -111,7 +159,7 @@
     "unitOfMeasurement" : "%",
     "sensorId" : "ZTHL01"
 }, {
-    "_id" : "ZTHL01-2016-06-23-reading-illuminance",
+    "_id" : "ZTHL01-reading-illuminance",
     "day" : "2016-06-22",
     "measurementType" : "illuminance",
     "measurementValue" : 148,
@@ -119,7 +167,7 @@
     "unitOfMeasurement" : "Lux",
     "sensorId" : "ZTHL01"
 }, {
-    "_id" : "ZTHL02-2016-06-23-reading-temperature",
+    "_id" : "ZTHL02-reading-temperature",
     "day" : "2016-06-22",
     "measurementType" : "temperature",
     "measurementValue" : 20.5,
@@ -127,7 +175,7 @@
     "unitOfMeasurement" : "°C",
     "sensorId" : "ZTHL02"
 }, {
-    "_id" : "ZTHL02-2016-06-23-reading-humidity",
+    "_id" : "ZTHL02-reading-humidity",
     "day" : "2016-06-22",
     "measurementType" : "humidity",
     "measurementValue" : 34,
@@ -135,7 +183,7 @@
     "unitOfMeasurement" : "%",
     "sensorId" : "ZTHL02"
 }, {
-    "_id" : "ZTHL02-2016-06-23-reading-illuminance",
+    "_id" : "ZTHL02-reading-illuminance",
     "day" : "2016-06-22",
     "measurementType" : "illuminance",
     "measurementValue" : 123,
@@ -143,7 +191,7 @@
     "unitOfMeasurement" : "Lux",
     "sensorId" : "ZTHL02"
 }, {
-    "_id" : "ZTHL03-2016-06-23-reading-temperature",
+    "_id" : "ZTHL03-reading-temperature",
     "day" : "2016-06-22",
     "measurementType" : "temperature",
     "measurementValue" : 24.5,
@@ -151,7 +199,7 @@
     "unitOfMeasurement" : "°C",
     "sensorId" : "ZTHL03"
 }, {
-    "_id" : "ZTHL03-2016-06-23-reading-humidity",
+    "_id" : "ZTHL03-reading-humidity",
     "day" : "2016-06-22",
     "measurementType" : "humidity",
     "measurementValue" : 14,
@@ -159,7 +207,7 @@
     "unitOfMeasurement" : "%",
     "sensorId" : "ZTHL03"
 }, {
-    "_id" : "ZTHL03-2016-06-23-reading-illuminance",
+    "_id" : "ZTHL03-reading-illuminance",
     "day" : "2016-06-22",
     "measurementType" : "illuminance",
     "measurementValue" : 173,
@@ -167,7 +215,7 @@
     "unitOfMeasurement" : "Lux",
     "sensorId" : "ZTHL03"
 }, {
-    "_id" : "COOV01-2016-06-23-reading-co2",
+    "_id" : "COOV01-reading-co2",
     "day" : "2016-06-22",
     "measurementType" : "co2",
     "measurementValue" : 669,
@@ -175,7 +223,7 @@
     "unitOfMeasurement" : "ppm",
     "sensorId" : "COOV01"
 }, {
-    "_id" : "COOV02-2016-06-23-reading-co2",
+    "_id" : "COOV02-reading-co2",
     "day" : "2016-06-22",
     "measurementType" : "co2",
     "measurementValue" : 673,
@@ -183,7 +231,7 @@
     "unitOfMeasurement" : "ppm",
     "sensorId" : "COOV02"
 }, {
-    "_id" : "IT-bergamo-2016-06-23-reading-weather-cloudness",
+    "_id" : "IT-bergamo-reading-weather-cloudness",
     "day" : "2016-06-22",
     "measurementType" : "weather-cloudness",
     "measurementValue" : 30,
@@ -191,7 +239,7 @@
     "unitOfMeasurement" : "%",
     "sensorId" : "IT-bergamo"
 }, {
-    "_id" : "IT-bergamo-2016-06-23-reading-weather-humidity",
+    "_id" : "IT-bergamo-reading-weather-humidity",
     "day" : "2016-06-22",
     "measurementType" : "weather-humidity",
     "measurementValue" : 55,
@@ -199,7 +247,7 @@
     "unitOfMeasurement" : "%",
     "sensorId" : "IT-bergamo"
 }, {
-    "_id" : "IT-bergamo-2016-06-23-reading-weather-temperature",
+    "_id" : "IT-bergamo-reading-weather-temperature",
     "day" : "2016-06-22",
     "measurementType" : "weather-temperature",
     "measurementValue" : 27,
@@ -207,7 +255,7 @@
     "unitOfMeasurement" : "°C",
     "sensorId" : "IT-bergamo"
 }, {
-    "_id" : "IT-bergamo-2016-06-23-reading-weather-id",
+    "_id" : "IT-bergamo-reading-weather-id",
     "day" : "2016-06-22",
     "measurementType" : "weather-id",
     "measurementValue" : 500,
