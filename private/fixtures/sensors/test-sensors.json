@@ -1,11 +1,11 @@
 [{
     "_id" : "IT001",
     "name" : "Sensore IT001",
-    "type" : "thl",
+    "type" : "pod",
     "details" : {
         "sensorModel" : "ZSES"
     },
-    "description" : "Pod IT001 (Esempio Sensore virutale) l_desc"
+    "description" : "Pod IT001 (Esempio Sensore virutale) l_desc",
     "shortDescription" : "Pod IT001 s_desc",
     "sampleDeltaInMS" : 30000,
     "unitOfMeasurement": "°C",
@@ -24,8 +24,8 @@
 },
 {
     "_id" : "IT002",
-    "name": "Sensore IT002"
-    "type": "thl",
+    "name": "Sensore IT002",
+    "type": "pod",
     "details": {
         "sensorModel": "ZSES"
     },
@@ -41,7 +41,7 @@
 {
     "_id" : "IT003",
     "name" : "maxPower casa",
-    "type" : "maxPower",
+    "type" : "pod",
     "description" : "Max power Tiziano Zani",
     "shortDescription" : "maxPower Zani",
     "unitOfMeasurement" : "kWh",
@@ -52,7 +52,8 @@
 },
 {
     "_id" : "IT004",
-    "description" : "Pod IT004"
+    "description" : "Pod IT004",
+    "type": "pod"
 },
 {
     "_id": "ZTHL01",

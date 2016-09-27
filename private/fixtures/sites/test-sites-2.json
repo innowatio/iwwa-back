@@ -1,101 +1,69 @@
 {
-    "_id": "SitoDiTest2",
-    "name": "Sito di Test 2",
-    "description" : "",
-    "shortDescription" : "",
-    "country" : "IT",
-    "province" : "bergamo",
-    "address" : "24056, Via Cascina san cosmo 1, Fontanella (BG)",
-    "sensors": [
-        {
-            "id": "IT003",
-            "children": [
-                {
-                    "id": "ANZ03",
-                }
-            ]
-        },
-        {
-            "id": "IT004",
-            "children": [
-                {
-                    "id": "ANZ04",
-                    "children": [
-                        {
-                            "id": "ANZ05",
-                            "children": [
-                                {
-                                    "id": "ANZ06",
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "ZTHL05",
-            "children": [
-                {
-                    "id": "ZTHL06",
-                    "children": [
-                        {
-                            "id": "ZTHL07",
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "id": "ZTHL08",
-            "children": [
-                {
-                    "id": "ZTHL09",
-                }
-            ]
-        },
-        {
-            "id": "ZTHL10",
-            "children": []
-        },
-        {
-            "id": "ZTHL11",
-            "children": []
-        },
-        {
-            "id": "COOV03",
-            "children": [
-                {
-                    "id": "COOV04",
-                }
-            ]
-        },
-        {
-            "id": "COOV05",
-            "children": []
-        },
-        {
-            "id": "IT-bergamo",
-            "children": []
-        }
-    ],
-    "sensorsIds": [
-        "IT003",
-        "ANZ03",
-        "IT004",
-        "ANZ04",
-        "ANZ05",
-        "ANZ06",
-        "ZTHL05",
-        "ZTHL06",
-        "ZTHL07",
-        "ZTHL08",
-        "ZTHL09",
-        "ZTHL10",
-        "ZTHL11",
-        "COOV03",
-        "COOV04",
-        "COOV05",
-        "IT-bergamo"
-    ]
+	"_id": "SitoDiTest2",
+	"name": "Sito di Test 2",
+	"description": "",
+	"shortDescription": "",
+	"country": "IT",
+	"province": "bergamo",
+	"address": "24056, Via Cascina san cosmo 1, Fontanella (BG)",
+	"sensors": [{
+		"id": "IT003"
+	}, {
+		"id": "IT004",
+		"children": [{
+			"id": "ANZ04",
+			"children": [{
+				"id": "ANZ05",
+				"children": [{
+					"id": "ANZ06"
+				}]
+			}]
+		}]
+	}, {
+		"id": "ZTHL05",
+		"children": [{
+			"id": "ZTHL06",
+			"children": [{
+				"id": "ZTHL07"
+			}]
+		}]
+	}, {
+		"id": "ZTHL02",
+		"children": []
+	}, {
+		"id": "ZTHL10",
+		"children": []
+	}, {
+		"id": "ZTHL11",
+		"children": []
+	}, {
+		"id": "COOV03",
+		"children": [{
+			"id": "COOV04"
+		}]
+	}, {
+		"id": "COOV05",
+		"children": []
+	}, {
+		"id": "IT-bergamo",
+		"children": []
+	}],
+	"sensorsIds": [
+		"IT003",
+		"IT004",
+		"ANZ04",
+		"ANZ05",
+		"ANZ06",
+		"ZTHL05",
+		"ZTHL06",
+		"ZTHL07",
+		"ZTHL08",
+		"ZTHL02",
+		"ZTHL10",
+		"ZTHL11",
+		"COOV02",
+		"COOV04",
+		"COOV05",
+		"IT-bergamo"
+	]
 }

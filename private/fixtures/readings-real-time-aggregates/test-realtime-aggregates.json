@@ -47,6 +47,54 @@
     "unitOfMeasurement" : "VAr",
     "sensorId" : "IT002"
 }, {
+    "_id" : "IT003-reading-activeEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "activeEnergy",
+    "measurementValue" : 34.88,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kWh",
+    "sensorId" : "IT003"
+}, {
+    "_id" : "IT003-reading-reactiveEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "reactiveEnergy",
+    "measurementValue" : 17.18,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kVArh",
+    "sensorId" : "IT003"
+}, {
+    "_id" : "IT003-reading-maxPower",
+    "day" : "2016-06-22",
+    "measurementType" : "maxPower",
+    "measurementValue" : 165,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "VAr",
+    "sensorId" : "IT003"
+}, {
+    "_id" : "IT004-reading-activeEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "activeEnergy",
+    "measurementValue" : 54.88,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kWh",
+    "sensorId" : "IT004"
+}, {
+    "_id" : "IT004-reading-reactiveEnergy",
+    "day" : "2016-06-22",
+    "measurementType" : "reactiveEnergy",
+    "measurementValue" : 52.18,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "kVArh",
+    "sensorId" : "IT004"
+}, {
+    "_id" : "IT004-reading-maxPower",
+    "day" : "2016-06-22",
+    "measurementType" : "maxPower",
+    "measurementValue" : 45,
+    "measurementTime" : 1466632800000,
+    "unitOfMeasurement" : "VAr",
+    "sensorId" : "IT004"
+}, {
     "_id" : "ANZ01-reading-activeEnergy",
     "day" : "2016-06-22",
     "measurementType" : "activeEnergy",
