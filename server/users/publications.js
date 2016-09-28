@@ -4,7 +4,7 @@ Meteor.publishComposite("users", {
         if (!user) {
             return null;
         }
-        if (!_.contains(user.groups, "admin")) {
+        if (!_.contains(user.roles, "admin")) {
             return Meteor.users.find({_id: this.userId});
         }
         return Meteor.users.find({});
@@ -12,9 +12,11 @@ Meteor.publishComposite("users", {
     children: [
         {
             find: function (user) {
-                return Groups.find({
-                    name: {$in: user.groups}
-                });
+                if (user.groups) {
+                    return Groups.find({
+                        name: {$in: user.groups}
+                    });
+                }
             },
             children: [
                 {
