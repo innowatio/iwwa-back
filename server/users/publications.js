@@ -17,18 +17,7 @@ Meteor.publishComposite("users", {
                         name: {$in: user.groups}
                     });
                 }
-            },
-            children: [
-                {
-                    find: function(group) {
-                        if (group.roles) {
-                            return Roles.find({
-                                name: {$in: group.roles}
-                            });
-                        }
-                    }
-                }
-            ]
+            }
         }
     ]
 });
