@@ -5,6 +5,14 @@
   "Energy Manager",
   "Manager",
   "yousave",
-  "users-management",
-  "groups-create"
+  "access-lucy",
+  "access-monitoring",
+  "assign-groups",
+  "assign-sensors",
+  "create-groups",
+  "create-sensors",
+  "download-chart-data",
+  "edit-sensors",
+  "manage-users",
+  "view-formula-details"
 ]
