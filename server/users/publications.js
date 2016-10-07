@@ -1,13 +1,15 @@
 Meteor.publishComposite("users", {
     find: function () {
-        var user = Meteor.users.findOne({_id: this.userId});
+        const user = Meteor.users.findOne({_id: this.userId});
         if (!user) {
             return null;
         }
-        if (!_.contains(user.roles, "admin")) {
-            return Meteor.users.find({_id: this.userId});
+        if (_.contains(user.roles, "admin")) {
+            return Meteor.users.find({});
         }
-        return Meteor.users.find({});
+        let familyUsersIds = [this.userId];
+        findChildren(familyUsersIds, Meteor.users, this.userId);
+        return Meteor.users.find({_id: {$in: familyUsersIds}});
     },
     children: [
         {
@@ -21,3 +23,12 @@ Meteor.publishComposite("users", {
         }
     ]
 });
+
+function findChildren (familyUsersIds, users, parentUserId) {
+    const children = users.find({"profile.parentUserId": parentUserId});
+    children && children.forEach(child => {
+        const childId = child._id;
+        familyUsersIds.push(childId);
+        findChildren(familyUsersIds, users, childId);
+    });
+}
