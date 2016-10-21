@@ -5,7 +5,9 @@ Meteor.startup(function () {
         "Gestore di Sistema",
         "Energy Manager",
         "Manager",
-        "yousave"
+        "yousave",
+        "Clens",
+        "Data Science"
     ].forEach(function (roleName) {
         var role = {
             name: roleName
