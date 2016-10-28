@@ -1,4 +1,3 @@
-FROM abernix/meteord:onbuild
+FROM jshimko/meteor-launchpad:latest
 MAINTAINER Team Wattellina <wattellina@mondora.com>
-ENV PORT 80
-EXPOSE 80
+EXPOSE 3000
