@@ -4,7 +4,7 @@ Meteor.publishComposite("users", {
         if (!user) {
             return null;
         }
-        if (_.contains(user.roles, "admin")) {
+        if (_.contains(user.roles, "admin") || _.contains(user.roles, "view-all-users")) {
             return Meteor.users.find({});
         }
         let familyUsersIds = [this.userId];

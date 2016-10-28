@@ -1,8 +1,10 @@
 [
   "admin",
   "Amministratore di Sistema",
-  "Gestore di Sistema",
+  "Clens",
+  "Data Science",
   "Energy Manager",
+  "Gestore di Sistema",
   "Manager",
   "yousave",
   "access-lucy",
@@ -14,7 +16,9 @@
   "download-chart-data",
   "edit-sensors",
   "manage-users",
-  "view-formula-details",
-  "Clens",
-  "Data Science"
+  "view-all-roles",
+  "view-all-sensors",
+  "view-all-sites",
+  "view-all-users",
+  "view-formula-details"
 ]
