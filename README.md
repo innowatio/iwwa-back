@@ -23,10 +23,7 @@ You should set the follow environment variables:
 
 ```sh
 ENVIRONMENT="production"
-PASSWORD_RESET_REDIRECT_URL
-MAIL_URL
 MONGO_URL
-PORT
 ROOT_URL
 ```
 ## Innowatio SSO integration flow
