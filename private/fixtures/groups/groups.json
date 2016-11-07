@@ -1,3 +1,26 @@
 [
-  "lucy-administrator"
+  {
+    "name": "Clens",
+    "roles": [
+      "access-lucy-light"
+    ]
+  },
+  {
+    "name": "Data Science",
+    "roles": [
+      "access-lucy-light"
+    ]
+  },
+  {
+    "name": "Energy Manager",
+    "roles": [
+      "access-lucy-light"
+    ]
+  },
+  {
+    "name": "Manager",
+    "roles": [
+      "access-lucy-light"
+    ]
+  }
 ]
