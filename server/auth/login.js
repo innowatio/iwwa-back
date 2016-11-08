@@ -113,7 +113,8 @@ function retrieveUpsertUser (uid, token) {
             "services.sso": {
                 "token": token,
                 "uid": uid
-            }
+            },
+            "profile.confirmed": true
         }
     });
     const user = Meteor.users.findOne({
