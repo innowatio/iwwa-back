@@ -231,9 +231,9 @@
     "unitOfMeasurement" : "ppm",
     "sensorId" : "COOV02"
 }, {
-    "_id" : "IT-bergamo-reading-weather-cloudness",
+    "_id" : "IT-bergamo-reading-weather-cloudeness",
     "day" : "2016-06-22",
-    "measurementType" : "weather-cloudness",
+    "measurementType" : "weather-cloudeness",
     "measurementValue" : 30,
     "measurementTime" : 1466632800000,
     "unitOfMeasurement" : "%",
