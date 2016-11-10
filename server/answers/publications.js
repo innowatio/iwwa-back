@@ -3,7 +3,7 @@ Meteor.publish("answers", function ({siteId, category, type}) {
     if (!user) {
        return null;
     }
-    if (_.contains(user.sites, siteId) || _.contains(user.roles, "admin")) {
+    if (_.contains(user.sites, siteId) || _.contains(user.groups, "admin")) {
        return Answers.find({
            _id: `${type}-${category}-${siteId}`
        });

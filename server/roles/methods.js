@@ -1,3 +1,5 @@
+//TODO need to move in groups methods
+
 Meteor.methods({
     toggleUserRole: function (role, targetUserId) {
         check(targetUserId, String);

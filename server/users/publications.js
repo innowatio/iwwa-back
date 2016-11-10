@@ -1,21 +1,34 @@
-Meteor.publish("users", function () {
-    var user = Meteor.users.findOne({_id: this.userId});
-    if (!user) {
-        return null;
-    }
-    if (!_.contains(user.roles, "admin")) {
-        return Meteor.users.find({_id: this.userId});
-    }
-    return Meteor.users.find({}, {
-        fields: {
-            profile: 1,
-            emails: 1,
-            sites: 1,
-            sensors: 1,
-            roles: 1,
-            createdAt: 1,
-            services: 1,
-            surveys: 1
+Meteor.publishComposite("users", {
+    find: function () {
+        const user = Meteor.users.findOne({_id: this.userId});
+        if (!user) {
+            return null;
         }
-    });
+        if (_.contains(user.roles, "admin") || _.contains(user.roles, "view-all-users")) {
+            return Meteor.users.find({});
+        }
+        let familyUsersIds = [this.userId];
+        findChildren(familyUsersIds, Meteor.users, this.userId);
+        return Meteor.users.find({_id: {$in: familyUsersIds}});
+    },
+    children: [
+        {
+            find: function (user) {
+                if (user.groups) {
+                    return Groups.find({
+                        name: {$in: user.groups}
+                    });
+                }
+            }
+        }
+    ]
 });
+
+function findChildren (familyUsersIds, users, parentUserId) {
+    const children = users.find({"profile.parentUserId": parentUserId});
+    children && children.forEach(child => {
+        const childId = child._id;
+        familyUsersIds.push(childId);
+        findChildren(familyUsersIds, users, childId);
+    });
+}
