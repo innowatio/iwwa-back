@@ -1,3 +1,5 @@
 Meteor.publish("alarms", function () {
-    return Alarms.find();
+    return Alarms.find({
+        userId: this.userId
+    });
 });
