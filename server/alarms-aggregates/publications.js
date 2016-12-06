@@ -6,6 +6,20 @@ function getIds (alarms, dateStart, dateEnd) {
     });
 }
 
+Meteor.publish("userAlarmsAggregates", function () {
+    const userAlarms = Alarms.find({
+        userId: this.userId,
+    }).fetch();
+
+    const alarmsAggregates = AlarmsAggregates.find({
+        alarmId: {
+            $in: userAlarms.map(x => x._id)
+        }
+    });
+
+    return alarmsAggregates;
+});
+
 Meteor.publish("alarmsAggregates", function (measurementType, startDate, endDate) {
     const userAlarms = Alarms.find({
         userId: this.userId,
