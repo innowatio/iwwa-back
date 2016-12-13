@@ -1,9 +1,14 @@
 Meteor.publish("sites", function () {
-    var user = Meteor.users.findOne({_id: this.userId});
+    const user = Meteor.users.findOne({_id: this.userId});
     if (!user) {
        return null;
     }
-    if (_.contains(user.groups, "admin")) {
+    const userRoles = _.flatten(Groups.find({
+        name: {
+            $in: user.groups
+        }
+    }).map(group => group.roles));
+    if (_.contains(userRoles, "view-all-sites")) {
        return Sites.find({
            isDeleted: {
                $ne: true
