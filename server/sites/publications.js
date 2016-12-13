@@ -5,7 +5,7 @@ Meteor.publish("sites", function () {
     }
     const userRoles = _.flatten(Groups.find({
         name: {
-            $in: user.groups
+            $in: user.groups || []
         }
     }).map(group => group.roles));
     if (_.contains(userRoles, "view-all-sites")) {
