@@ -25,3 +25,33 @@ Meteor.publish("dailyMeasuresBySensor", (sensorId, dateStart, dateEnd, source, m
         }
     });
 });
+
+Meteor.publish("dashboardDailyMeasurements", function () {
+
+    const user = Meteor.users.findOne({
+        _id: this.userId
+    });
+
+    if (user) {
+        const sitesIds = user.sites || [];
+
+        const today = moment().format("YYYY-MM-DD");
+        const yesterday = moment().subtract({days: 1}).format("YYYY-MM-DD");
+
+        const ids = sitesIds.reduce((state, id) => {
+            return [
+                ...state,
+                `${id}-${today}-reading-activeEnergy`,
+                `${id}-${today}-reference-activeEnergy`,
+                `${id}-${yesterday}-reading-activeEnergy`,
+                `${id}-${yesterday}-reference-activeEnergy`
+            ];
+        }, []);
+
+        return ReadingsDailyAggregates.find({
+            _id: {
+                $in: ids
+            }
+        });
+    }
+});

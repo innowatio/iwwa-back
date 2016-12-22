@@ -1,4 +1,7 @@
-import {daysInInterval} from "../publications-commons";
+import {
+    daysInInterval,
+    getUserSensorsIds
+} from "../publications-commons";
 
 function getIds (alarms, dateStart, dateEnd) {
     return alarms.map(alarm => {
@@ -29,6 +32,22 @@ Meteor.publish("alarmsAggregates", function (measurementType, startDate, endDate
     const alarmsAggregates = AlarmsAggregates.find({
         _id: {
             $in: _.flatten(getIds(userAlarms, startDate, endDate))
+        }
+    });
+
+    return alarmsAggregates;
+});
+
+Meteor.publish("dashboardAlarmsAggregates", function () {
+    const dashboardAlarms = Alarms.find({
+        sensorId: {
+            $in: getUserSensorsIds(this.userId)
+        }
+    }).fetch();
+
+    const alarmsAggregates = AlarmsAggregates.find({
+        alarmId: {
+            $in: dashboardAlarms.map(x => x._id)
         }
     });
 

@@ -13,3 +13,38 @@ export function daysInInterval (start, end) {
     }
     return days;
 }
+
+export function getUserSensorsIds(userId) {
+
+    const user = Meteor.users.findOne({
+        _id: userId
+    });
+
+    if (user) {
+        const sitesIds = user.sites || [];
+        const sensorsIds = user.sensors || [];
+
+        const sites = Sites.find({
+            _id: {
+                $in: sitesIds
+            }
+        }).fetch();
+
+        const sitesSensors = sites.reduce((state, site) => {
+            return [
+                ...state,
+                ...site.sensorsIds
+            ];
+        }, []);
+
+        const ids = _.uniq([
+            ...sitesSensors,
+            ...sensorsIds,
+            ...sitesIds
+        ]);
+
+        return ids;
+    }
+
+    return [];
+}
