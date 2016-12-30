@@ -1,16 +1,16 @@
 {
-	"_id": "SitoDiTest2",
-	"name": "Sito di Test 2",
-	"description": "Descrizione sito di test 2",
-	"shortDescription": "sito di test 2",
-	"employees" : 10,
+	"_id": "SitoDiTest3",
+	"name": "Sito di Test 3",
+	"description": "Descrizione sito di test 3",
+	"shortDescription": "sito di test 3",
+	"employees" : 40,
     "businessType": "mall",
-    "contractualPower": 2,
-    "areaInMq" : 100,
+    "contractualPower": 3,
+    "areaInMq" : 300,
     "country" : "IT",
     "province" : "BG",
-    "address" : "24056, Via treviglio 1, Treviglio (BG)",
-    "city" : "Treviglio",
+    "address" : "24056, Via Dalmine 1, Dalmine (BG)",
+    "city" : "Dalmine",
     "alarmsDisabled": false,
     "connectionDisabled": false,
     "consumptionsDisabled": false,
@@ -20,16 +20,16 @@
 	"attributes": [
 		{
 	        "id": "insegna",
-	        "value": "Treviglio"
+	        "value": "Dalmine"
 	    },{
 	        "id": "piani",
-	        "value": "4"
+	        "value": "3"
 	    },{
 	        "id": "vetrine",
-	        "value": "1"
+	        "value": "3"
 	    },{
 	        "id": "mqPdv",
-	        "value": "30"
+	        "value": "100"
 	    }
 	],
 	"sensors": [{

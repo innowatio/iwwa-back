@@ -1,0 +1,37 @@
+[
+    {
+        "_id": "insegna",
+        "label": "Insegna",
+        "filterType": "text"
+    },
+    {
+        "_id": "immagine",
+        "label": "Immagine",
+        "filterType": "text"
+    },
+    {
+        "_id": "piani",
+        "label": "Piani",
+        "filterType": "number"
+    },
+    {
+        "_id": "cluster",
+        "label": "Cluster",
+        "filterType": "text"
+    },
+    {
+        "_id": "partner",
+        "label": "Partner",
+        "filterType": "text"
+    },
+    {
+        "_id": "vetrine",
+        "label": "Vetrine",
+        "filterType": "number"
+    },
+    {
+        "_id": "mqPdv",
+        "label": "MQ PdV (Punto di Vendita)",
+        "filterType": "range"
+    }
+]

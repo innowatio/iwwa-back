@@ -5,11 +5,33 @@
     "shortDescription" : "sito di test 1",
     "employees" : 20,
     "businessType": "mall",
+    "contractualPower": 1,
     "areaInMq" : 200,
     "country" : "IT",
-    "city" : "city",
-    "province" : "bergamo",
+    "province" : "BG",
     "address" : "24056, Via Cascina san cosmo 1, Fontanella (BG)",
+    "city" : "Fontanella",
+    "alarmsDisabled": false,
+    "connectionDisabled": false,
+    "consumptionsDisabled": false,
+    "telecontrolDisabled": true,
+    "comfortDisabled": false,
+    "hourlyData": true,
+    "attributes": [
+		{
+	        "id": "insegna",
+	        "value": "Fontanella"
+	    },{
+	        "id": "piani",
+	        "value": "2"
+	    },{
+	        "id": "vetrine",
+	        "value": "1"
+	    },{
+	        "id": "mqPdv",
+	        "value": "200"
+	    }
+	],
     "sensors": [
         {
             "id": "IT001",
@@ -50,8 +72,8 @@
       ],
       "sensorsIds": [
         "IT001",
-        "ANZ01",
         "IT002",
+        "ANZ01",
         "ANZ02",
         "ZTHL01",
         "ZTHL03",
