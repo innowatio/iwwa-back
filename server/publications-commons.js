@@ -14,15 +14,15 @@ export function daysInInterval (start, end) {
     return days;
 }
 
-export function getUserSensorsIds(userId) {
+export function getUserSensorsIds (userId) {
 
     const user = Meteor.users.findOne({
         _id: userId
     });
 
     if (user) {
-        const sitesIds = user.sites || [];
-        const sensorsIds = user.sensors || [];
+        const sitesIds = getUserObjectsIds(user, "view-all-sites", Sites, "sites");
+        const sensorsIds = getUserObjectsIds(user, "view-all-sensors", Sensors, "sensors");
 
         const sites = Sites.find({
             _id: {
@@ -37,14 +37,29 @@ export function getUserSensorsIds(userId) {
             ];
         }, []);
 
-        const ids = _.uniq([
+        return _.uniq([
             ...sitesSensors,
             ...sensorsIds,
             ...sitesIds
         ]);
-
-        return ids;
     }
 
     return [];
+}
+
+export function userHasRole (user, role) {
+    const userRoles = _.flatten(Groups.find({
+        name: {
+            $in: user.groups || []
+        }
+    }).map(group => group.roles));
+    return _.contains(userRoles, role);
+}
+
+export function getUserObjectsIds (user, permission, collection, userAttr) {
+    if (userHasRole(user, permission)) {
+        return _.flatten(collection.find().map(elem => elem._id));
+    } else {
+        return user[userAttr] || [];
+    }
 }

@@ -1,4 +1,4 @@
-import {daysInInterval} from "../publications-commons";
+import {daysInInterval, getUserObjectsIds} from "../publications-commons";
 
 function getIds (sensorId, dateStart, dateEnd, source, measurementType) {
     return daysInInterval(dateStart, dateEnd).map(day => (
@@ -33,7 +33,7 @@ Meteor.publish("dashboardDailyMeasurements", function () {
     });
 
     if (user) {
-        const sitesIds = user.sites || [];
+        const sitesIds = getUserObjectsIds(user, "view-all-sites", Sites, "sites");
 
         const today = moment().format("YYYY-MM-DD");
         const yesterday = moment().subtract({days: 1}).format("YYYY-MM-DD");

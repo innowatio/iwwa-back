@@ -1,10 +1,12 @@
+import {userHasRole} from "../publications-commons";
+
 Meteor.publishComposite("users", {
     find: function () {
         const user = Meteor.users.findOne({_id: this.userId});
         if (!user) {
             return null;
         }
-        if (_.contains(user.roles, "admin") || _.contains(user.roles, "view-all-users")) {
+        if (userHasRole(user, "view-all-users")) {
             return Meteor.users.find({});
         }
         let familyUsersIds = [this.userId];

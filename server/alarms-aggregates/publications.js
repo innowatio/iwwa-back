@@ -1,7 +1,4 @@
-import {
-    daysInInterval,
-    getUserSensorsIds
-} from "../publications-commons";
+import {daysInInterval, getUserSensorsIds} from "../publications-commons";
 
 function getIds (alarms, dateStart, dateEnd) {
     return alarms.map(alarm => {
@@ -11,16 +8,14 @@ function getIds (alarms, dateStart, dateEnd) {
 
 Meteor.publish("userAlarmsAggregates", function () {
     const userAlarms = Alarms.find({
-        userId: this.userId,
+        userId: this.userId
     }).fetch();
 
-    const alarmsAggregates = AlarmsAggregates.find({
+    return AlarmsAggregates.find({
         alarmId: {
             $in: userAlarms.map(x => x._id)
         }
     });
-
-    return alarmsAggregates;
 });
 
 Meteor.publish("alarmsAggregates", function (measurementType, startDate, endDate) {
@@ -29,13 +24,11 @@ Meteor.publish("alarmsAggregates", function (measurementType, startDate, endDate
         measurementType
     }).fetch();
 
-    const alarmsAggregates = AlarmsAggregates.find({
+    return AlarmsAggregates.find({
         _id: {
             $in: _.flatten(getIds(userAlarms, startDate, endDate))
         }
     });
-
-    return alarmsAggregates;
 });
 
 Meteor.publish("dashboardAlarmsAggregates", function () {
@@ -45,11 +38,9 @@ Meteor.publish("dashboardAlarmsAggregates", function () {
         }
     }).fetch();
 
-    const alarmsAggregates = AlarmsAggregates.find({
+    return AlarmsAggregates.find({
         alarmId: {
             $in: dashboardAlarms.map(x => x._id)
         }
     });
-
-    return alarmsAggregates;
 });
