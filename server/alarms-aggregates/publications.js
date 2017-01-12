@@ -41,6 +41,7 @@ Meteor.publish("dashboardAlarmsAggregates", function () {
     return AlarmsAggregates.find({
         alarmId: {
             $in: dashboardAlarms.map(x => x._id)
-        }
+        },
+        date: moment.utc().format("YYYY-MM-DD")
     });
 });
