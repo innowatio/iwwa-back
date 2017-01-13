@@ -10,7 +10,7 @@ function getMeasurementsTypes(sensorId) {
     } else if (sensorId.indexOf("COOV") >= 0) {
         return ["co2"];
     } else {
-        return ["activeEnergy", "reactiveEnergy", "maxPower"];
+        return ["activeEnergy", "reactiveEnergy", "maxPower", "comfort"];
     }
 }
 
@@ -38,6 +38,8 @@ function getUnitOfMeasurement(measurementType) {
             return "°C";
         case "weather-id":
             return "id";
+        case "comfort":
+            return "status";
     }
 }
 
@@ -55,12 +57,18 @@ function createMeasurementValues(measurements, measurementType, source) {
         return measurements[measurementType];
     }
     var filteredMeasurements = measurements[measurementType].split(",").filter(x => !isNaN(parseFloat(x)));
+
+    if(measurementType=="comfort") {
+        return filteredMeasurements.join(",");
+    }
+
     var values = filteredMeasurements.map(x => {
         const measurementsValue = parseFloat(x);
         const max = (measurementsValue + (measurementsValue * 2 / 100));
         const min = (measurementsValue - (measurementsValue * 2 / 100));
         return getRandomArbitrary(max, min, source);
     }).sort();
+
     return values.join(",");
 }
 
