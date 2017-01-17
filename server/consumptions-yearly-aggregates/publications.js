@@ -30,12 +30,25 @@ Meteor.publish("dashboardYearlyConsumptions", function () {
             const site = Sites.findOne({
                 _id: id
             });
+
+            const sensors = Sensors.find({
+                _id: {
+                    $in: site.sensorsIds
+                }
+            }).fetch();
+
+            const comfort = sensors.find(x => {
+                return _.contains(x.measurementsType, "comfort");
+            });
+
             const sensorIds = site.defaultSensor || id;
+            const comfortId = comfort ? comfort._id : id;
+            
             return [
                 ...state,
                 `${sensorIds}-${currentYear}-reading-activeEnergy`,
-                `${sensorIds}-${currentYear}-reading-comfort`,
-                `${sensorIds}-${currentYear}-reference-activeEnergy`
+                `${sensorIds}-${currentYear}-reference-activeEnergy`,
+                `${comfortId}-${currentYear}-reading-comfort`
             ];
         }, []);
 
