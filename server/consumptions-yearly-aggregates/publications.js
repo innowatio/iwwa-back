@@ -26,7 +26,7 @@ Meteor.publish("dashboardYearlyConsumptions", function () {
         const currentYear = moment().format("YYYY");
 
         const ids = sitesIds.reduce((state, id) => {
-            //Check if default sensor Exist
+
             const site = Sites.findOne({
                 _id: id
             });
