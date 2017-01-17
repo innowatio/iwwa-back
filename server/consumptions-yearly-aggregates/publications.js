@@ -23,15 +23,19 @@ Meteor.publish("dashboardYearlyConsumptions", function () {
 
     if (user) {
         const sitesIds = getUserObjectsIds(user, "view-all-sites", Sites, "sites");
-
         const currentYear = moment().format("YYYY");
 
         const ids = sitesIds.reduce((state, id) => {
+            //Check if default sensor Exist
+            const site = Sites.findOne({
+                _id: id
+            });
+            const sensorIds = site.defaultSensor || id;
             return [
                 ...state,
-                `${id}-${currentYear}-reading-activeEnergy`,
-                `${id}-${currentYear}-reading-comfort`,
-                `${id}-${currentYear}-reference-activeEnergy`
+                `${sensorIds}-${currentYear}-reading-activeEnergy`,
+                `${sensorIds}-${currentYear}-reading-comfort`,
+                `${sensorIds}-${currentYear}-reference-activeEnergy`
             ];
         }, []);
 
