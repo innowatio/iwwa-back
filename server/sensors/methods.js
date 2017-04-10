@@ -8,7 +8,10 @@ Meteor.methods({
             return [...state, ...sensor.tags || []];
         });
 
-        return _.uniq(tags);
+        return _.uniq(tags).map(tag => ({
+            label: tag,
+            value: tag
+        }));
     },
 
     getPrimaryTags: function () {
@@ -18,7 +21,10 @@ Meteor.methods({
             return [...state, ...sensor.primaryTags || []];
         });
 
-        return _.uniq(primaryTags);
+        return _.uniq(primaryTags).map(tag => ({
+            label: tag,
+            value: tag
+        }));
     },
 
     getSensors: function(startIndex = 0, endIndex = 20, primaryTags, tags, search = "") {
