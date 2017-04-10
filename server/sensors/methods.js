@@ -1,8 +1,16 @@
 Meteor.methods({
 
-    getTags: function () {
+    getTags: (primaryTags) => {
 
-        const sensors = Sensors.find().fetch();
+        const searchPrimaryTags = {
+            primaryTags: {
+                $in: primaryTags
+            }
+        }; 
+
+        const sensors = Sensors.find({
+            ...primaryTags && primaryTags.length > 0 && searchPrimaryTags
+        }).fetch();
 
         const tags = sensors.reduce((state, sensor) => {
             return [...state, ...sensor.tags || []];
@@ -14,7 +22,7 @@ Meteor.methods({
         }));
     },
 
-    getPrimaryTags: function () {
+    getPrimaryTags: () => {
         const sensors = Sensors.find().fetch();
 
         const primaryTags = sensors.reduce((state, sensor) => {
@@ -27,7 +35,7 @@ Meteor.methods({
         }));
     },
 
-    getSensors: function(startIndex = 0, endIndex = 20, primaryTags, tags, search = "") {
+    getSensors: (startIndex = 0, endIndex = 20, primaryTags, tags, search = "") => {
 
         const query = {
             description: {
