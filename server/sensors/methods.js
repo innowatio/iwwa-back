@@ -14,7 +14,7 @@ Meteor.methods({
 
         const tags = sensors.reduce((state, sensor) => {
             return [...state, ...sensor.tags || []];
-        });
+        }, []);
 
         return _.uniq(tags).map(tag => ({
             label: tag,
@@ -27,7 +27,7 @@ Meteor.methods({
 
         const primaryTags = sensors.reduce((state, sensor) => {
             return [...state, ...sensor.primaryTags || []];
-        });
+        }, []);
 
         return _.uniq(primaryTags).map(tag => ({
             label: tag,
