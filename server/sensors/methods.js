@@ -1,9 +1,11 @@
+import get from "lodash.get";
+
 Meteor.methods({
 
     getTags: (primaryTags) => {
 
         const searchPrimaryTags = {
-            primaryTags: {
+            "measurementsInfo.primaryTags": {
                 $in: primaryTags
             }
         }; 
@@ -12,8 +14,13 @@ Meteor.methods({
             ...primaryTags && primaryTags.length > 0 && searchPrimaryTags
         }).fetch();
 
-        const tags = sensors.reduce((state, sensor) => {
-            return [...state, ...sensor.tags || []];
+        const tags = sensors.filter(x => x.measurementsInfo).reduce((state, sensor) => {
+
+            const sensorTags = sensor.measurementsInfo.reduce((tags, measurementInfo) => {
+                return [...tags, ...get(measurementInfo, "tags", [])];
+            });
+
+            return [...state, ...sensorTags];
         }, []);
 
         return _.uniq(tags).map(tag => ({
@@ -25,8 +32,13 @@ Meteor.methods({
     getPrimaryTags: () => {
         const sensors = Sensors.find().fetch();
 
-        const primaryTags = sensors.reduce((state, sensor) => {
-            return [...state, ...sensor.primaryTags || []];
+        const primaryTags = sensors.filter(x => x.measurementsInfo).reduce((state, sensor) => {
+
+            const sensorPrimaryTags = sensor.measurementsInfo.reduce((tags, measurementInfo) => {
+                return [...tags, ...get(measurementInfo, "primaryTags", [])];
+            });
+
+            return [...state, ...sensorPrimaryTags];
         }, []);
 
         return _.uniq(primaryTags).map(tag => ({
@@ -44,19 +56,25 @@ Meteor.methods({
         };
 
         const searchTags = {
-            tags: {
+            "measurementsInfo.tags": {
                 $in: tags
             }
         };
 
         const searchPrimaryTags = {
-            primaryTags: {
+            "measurementsInfo.primaryTags": {
                 $in: primaryTags
             }
         };
 
+        console.log({
+            ...search && query,
+            ...tags && tags.length > 0 && searchTags,
+            ...primaryTags && primaryTags.length > 0 && searchPrimaryTags
+        });
+
         const sensors = Sensors.find({
-            ...query,
+            ...search && query,
             ...tags && tags.length > 0 && searchTags,
             ...primaryTags && primaryTags.length > 0 && searchPrimaryTags
         }, {
