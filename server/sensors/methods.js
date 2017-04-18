@@ -80,7 +80,13 @@ Meteor.methods({
         }, {
             skip: startIndex,
             limit: endIndex - startIndex
-        }).fetch();
+        }).fetch().map(sensor => {
+            const measurementsInfo = sensor.measurementsInfo || [];
+            return {
+                ...sensor,
+                measurementsInfo: measurementsInfo.filter(x => x.primaryTags)
+            };
+        });
 
         return sensors;
     }
